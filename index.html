@@ -7,17 +7,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bear-red: #b32d2d;
-            --bear-dark: #1a1a1a;
-            --bear-white: #f4f4f4;
-            --bear-cream: #fff9f0;
+            /* Updated primary color to #4F6458 */
+            --bear-green: #4F6458;
+            --bear-dark: #2c3932;
+            --bear-white: #ffffff;
+            --bear-cream: #f4f1ea;
+            --accent-gold: #d4a373; /* Subtle accent for contrast */
         }
 
         body {
             margin: 0;
             padding: 0;
             font-family: 'Inter', sans-serif;
-            background-color: var(--bear-red);
+            background-color: var(--bear-green);
             color: var(--bear-white);
             line-height: 1.6;
         }
@@ -27,13 +29,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
-            background-color: rgba(0,0,0,0.1);
+            padding: 25px 5%;
+            background-color: rgba(0,0,0,0.15);
         }
 
         .logo {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -42,109 +44,133 @@
             color: white;
             text-decoration: none;
             margin-left: 30px;
-            font-weight: bold;
+            font-weight: 700;
             text-transform: uppercase;
             font-size: 0.9rem;
+            letter-spacing: 1px;
         }
 
         /* --- Hero Section --- */
         .hero {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding: 60px 5%;
-            min-height: 70vh;
-            position: relative;
+            grid-template-columns: 1.2fr 0.8fr;
+            padding: 80px 5%;
+            min-height: 60vh;
+            align-items: start;
         }
 
         .hero-text h1 {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(4rem, 10vw, 8rem);
-            line-height: 0.9;
+            font-size: clamp(4.5rem, 12vw, 9rem);
+            line-height: 0.85;
             text-transform: uppercase;
             margin: 0;
-            color: var(--bear-dark);
+            color: var(--bear-cream);
+            letter-spacing: -2px;
         }
 
         /* --- The Register Box (Right Corner) --- */
         .register-box {
             background-color: var(--bear-dark);
             color: white;
-            padding: 30px;
-            border-radius: 12px;
-            width: 250px;
-            height: fit-content;
+            padding: 40px;
+            border-radius: 4px; /* Sharper edges like the GUI image */
+            width: 280px;
             justify-self: end;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
+            box-shadow: 15px 15px 0px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .register-box:hover {
-            transform: translateY(-5px);
+        .register-box p { 
+            margin: 0; 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            opacity: 0.8; 
         }
 
-        .register-box p { margin: 0; font-size: 0.8rem; opacity: 0.7; }
         .register-box h2 { 
-            margin: 10px 0; 
+            margin: 15px 0; 
             font-family: 'Oswald', sans-serif; 
-            font-size: 2rem;
+            font-size: 2.2rem;
             line-height: 1;
         }
         
         .btn-register {
             display: inline-block;
-            margin-top: 20px;
-            color: white;
+            margin-top: 25px;
+            color: var(--accent-gold);
             text-decoration: none;
             font-weight: bold;
-            border-bottom: 2px solid white;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
         /* --- Info Bubbles --- */
         .info-bubble {
             background: var(--bear-cream);
             color: var(--bear-dark);
-            padding: 20px;
-            border-radius: 15px;
+            padding: 20px 30px;
+            border-radius: 50px; /* Pill shape from the 2025 inspiration */
             width: fit-content;
-            margin-top: 20px;
-            font-weight: bold;
-            box-shadow: 5px 5px 0px var(--bear-dark);
+            margin-top: 30px;
+            font-weight: 800;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* --- About Section --- */
+        .about-section {
+            padding: 40px 5% 80px;
+            max-width: 600px;
+        }
+
+        .about-section h3 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--accent-gold);
+            display: inline-block;
+            margin-bottom: 15px;
         }
 
         /* --- Footer Stats --- */
         .stats-bar {
-            background: rgba(0,0,0,0.2);
-            padding: 40px 5%;
+            background: var(--bear-dark);
+            padding: 50px 5%;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
             text-align: center;
         }
 
         .stat-item h3 {
             font-family: 'Oswald', sans-serif;
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin: 0;
+            color: var(--accent-gold);
         }
 
         .stat-item p {
             text-transform: uppercase;
             font-size: 0.8rem;
+            font-weight: 700;
             letter-spacing: 1px;
+            margin-top: 5px;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
+        /* Responsive Adjustments */
+        @media (max-width: 900px) {
             .hero { grid-template-columns: 1fr; }
-            .register-box { justify-self: start; margin-top: 40px; }
-            .hero-text h1 { font-size: 4rem; }
+            .register-box { justify-self: start; margin-top: 50px; width: 80%; }
+            .hero-text h1 { font-size: 5rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Bear Conference</div>
+        <div class="logo">Bear Conference 2026</div>
         <div class="nav-links">
             <a href="#speakers">Speakers</a>
             <a href="#schedule">Schedule</a>
@@ -152,49 +178,50 @@
         </div>
     </nav>
 
-    <main class="hero">
-        <div class="hero-text">
-            <h1>Digital<br>Conference<br>2026</h1>
-            
-            <div class="info-bubble">
-                OCT. 21–23, 2026<br>
-                SAN FRANCISCO, CA
+    <main>
+        <div class="hero">
+            <div class="hero-text">
+                <h1>Digital<br>Conference<br>2026</h1>
+                
+                <div class="info-bubble">
+                    Oct. 21–23 // San Francisco
+                </div>
             </div>
 
-            <div style="margin-top: 40px; max-width: 500px;">
-                <h3>ABOUT THE CONFERENCE</h3>
-                <p>Join us for the 2026 BEAR Conference! A gathering of thinkers, builders, and the open-source community to explore the future of software development.</p>
+            <div class="register-box">
+                <p>Available Now</p>
+                <h2>REGISTER<br>TICKETS</h2>
+                <a href="#" class="btn-register">Join the Waitlist &rarr;</a>
             </div>
         </div>
 
-        <div class="register-box">
-            <p>Booking</p>
-            <h2>REGISTER<br>TICKETS</h2>
-            <a href="#" class="btn-register">GET TICKETS &rarr;</a>
-        </div>
+        <section class="about-section">
+            <h3>About the Event</h3>
+            <p>Following the success of 2025, the BEAR Conference returns. We gather the world's leading engineers and designers to discuss the future of digital architecture, open-source sustainability, and the evolution of the web.</p>
+        </section>
     </main>
 
     <section class="stats-bar">
         <div class="stat-item">
-            <h3>15+</h3>
-            <p>Speakers</p>
+            <h3>20+</h3>
+            <p>Keynote Speakers</p>
         </div>
         <div class="stat-item">
             <h3>3</h3>
-            <p>Days</p>
+            <p>Full Days</p>
         </div>
         <div class="stat-item">
-            <h3>5</h3>
-            <p>Workshops</p>
+            <h3>12</h3>
+            <p>Technical Workshops</p>
         </div>
         <div class="stat-item">
-            <h3>500+</h3>
-            <p>Attendees</p>
+            <h3>1k+</h3>
+            <p>Global Attendees</p>
         </div>
     </section>
 
-    <footer style="padding: 20px 5%; font-size: 0.8rem; opacity: 0.6;">
-        &copy; 2026 BEAR Conference. Hosted on GitHub Pages.
+    <footer style="padding: 40px 5%; background: #232d28; font-size: 0.8rem; text-align: center;">
+        <p>&copy; 2026 BEAR Conference. All rights reserved. | Built for GitHub Pages</p>
     </footer>
 
 </body>
