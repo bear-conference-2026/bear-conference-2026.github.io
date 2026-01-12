@@ -49,12 +49,15 @@
         }
 
         /* --- Hero Section --- */
+
         .hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
             padding: 60px 5%;
             min-height: 70vh;
             position: relative;
+            align-items: start; 
+            gap: 40px;          
         }
 
         .hero-text h1 {
@@ -68,17 +71,18 @@
 
         /* --- The Register Box (Right Corner) --- */
         .register-box {
-            background-color: var(--bear-dark); 
+            background-color: #190D21;
             color: white;
             padding: 30px;
             border-radius: 12px;
             width: 250px;
-            height: fit-content;
-            justify-self: end;
+            height: fit-content;  
+            justify-self: end;    
+            margin-top: 20px;     
             box-shadow: 0 10px 30px rgba(0,0,0,0.35);
             transition: transform 0.3s ease;
+            z-index: 10;          
         }
-
         .register-box:hover {
             transform: translateY(-5px);
         }
