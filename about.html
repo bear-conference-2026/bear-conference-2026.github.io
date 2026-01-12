@@ -60,12 +60,16 @@
             font-size: 0.9rem;
         }
 
-        /* --- Updated Header: Shifted UP --- */
+        /* --- Header Section (Home Page Style) --- */
         .about-header {
             position: relative;
-            padding: 80px 5% 40px 5%; /* Reduced padding to shift text UP */
+            padding: 120px 5% 100px 5%;
             text-align: center;
             overflow: hidden;
+            min-height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             background: linear-gradient(rgba(79, 100, 88, 0.7), rgba(79, 100, 88, 1));
         }
 
@@ -105,27 +109,7 @@
             margin-right: auto;
         }
 
-        /* --- New Image Section in between --- */
-        .mid-image-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 5%;
-            text-align: center;
-            position: relative;
-            z-index: 5;
-        }
-
-        .mid-image-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            max-height: 400px; /* Adjust height as needed */
-            object-fit: cover;
-        }
-
-        /* --- Horizontal Stats Banner --- */
+        /* --- Fixed Horizontal Stats-Style Banner --- */
         .details-banner {
             background-color: var(--glass-bg);
             padding: 40px 5%;
@@ -140,9 +124,9 @@
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            margin-top: 20px; /* Adds breathing room below image */
         }
 
+        /* The Gold Data (Primary Focus) */
         .detail-item .data-text { 
             font-family: 'Oswald', sans-serif; 
             font-size: 1.6rem; 
@@ -150,12 +134,15 @@
             color: var(--accent-gold); 
             text-transform: uppercase;
             font-weight: 700;
+            line-height: 1.1;
         }
 
+        /* The White Labels (Secondary beneath) */
         .detail-item .label-text { 
             font-size: 0.75rem; 
             margin: 8px 0 0 0;
-            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7); /* Light white */
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -165,7 +152,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            padding: 60px 5%;
+            padding: 80px 5%;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -174,7 +161,17 @@
             background-color: var(--glass-bg);
             padding: 40px;
             border-radius: 15px;
+            backdrop-filter: blur(10px);
             border-left: 4px solid var(--accent-gold);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .glass-card h2 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            margin-top: 0;
+            letter-spacing: 1px;
         }
 
         /* --- Partners Section --- */
@@ -182,6 +179,14 @@
             padding: 80px 5%;
             text-align: center;
             background: rgba(0,0,0,0.15);
+        }
+
+        .partners-section h2 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+            color: var(--accent-gold);
         }
 
         .logo-grid {
@@ -196,6 +201,13 @@
             height: 50px;
             filter: grayscale(1) brightness(2);
             opacity: 0.7;
+            transition: 0.3s ease;
+        }
+
+        .partner-logo:hover {
+            filter: grayscale(0) brightness(1);
+            opacity: 1;
+            transform: scale(1.1);
         }
 
         .map-container {
@@ -218,6 +230,7 @@
         @media (max-width: 768px) {
             .content-section { grid-template-columns: 1fr; }
             .details-banner { grid-template-columns: 1fr 1fr; }
+            .detail-item .data-text { font-size: 1.3rem; }
         }
     </style>
 </head>
@@ -237,13 +250,9 @@
     <header class="about-header">
         <div class="header-content">
             <h1>About the Conference</h1>
-            <p class="subheading">15th Annual BEAR PGR Conference: Bridging Research, Innovation, and Computing.</p>
+            <p class="subheading">15th Annual BEAR PGR Conference: Bridging Research, Innovation, and Computing. Discover how BEAR resources are driving innovative AI research focused on ethics and integrity.</p>
         </div>
     </header>
-
-    <div class="mid-image-container">
-        <img src="campus.jpg" alt="University of Birmingham Campus">
-    </div>
 
     <section class="details-banner">
         <div class="detail-item">
@@ -267,16 +276,18 @@
     <main class="content-section">
         <section class="glass-card">
             <h2>Our Mission</h2>
-            <p>The BEAR (Birmingham Environment for Academic Research) Conference is a premier event for postgraduate researchers to showcase work enabled by High Performance Computing.</p>
+            <p>The BEAR (Birmingham Environment for Academic Research) Conference is a premier event for postgraduate researchers to showcase work enabled by High Performance Computing. It has grown into a vital interdisciplinary hub for innovation.</p>
+            <p>This year, under the theme <strong>"AI x Integrity,"</strong> we explore the ethical boundaries and technical possibilities of artificial intelligence in modern research.</p>
         </section>
 
         <section class="glass-card">
             <h2>Why Attend?</h2>
-            <p>Connect with peers, learn about AI methodology, and compete for awards sponsored by Lenovo.</p>
+            <p>This conference provides a unique platform for researchers to present their results, learn about innovative techniques across various fields, and network with peers who use BlueBEAR and HPC approaches.</p>
+            <p> Also, stand a chance to compete for "Best Talk" and "Best Poster" awards, generously sponsored by Lenovo.</p>
         </section>
 
         <div style="grid-column: 1 / -1; margin-top: 40px;">
-            <h2 style="font-family: 'Oswald'; color: var(--accent-gold); text-align: center; text-transform: uppercase;">Location</h2>
+            <h2 style="font-family: 'Oswald'; color: var(--accent-gold); text-align: center; text-transform: uppercase; letter-spacing: 2px;">Where to find us</h2>
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2431.144883398991!2d-1.932918823326164!3d52.45021267204368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bc106f236087%3A0x62804367c2937905!2sUniversity%20of%20Birmingham!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
@@ -288,7 +299,7 @@
         <div class="logo-grid">
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Lenovo_logo_2015.svg" alt="Lenovo" class="partner-logo">
             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/68/University_of_Birmingham_logo.svg/1200px-University_of_Birmingham_logo.svg.png" alt="University of Birmingham" class="partner-logo">
-            <div class="partner-logo" style="display:flex; align-items:center; color:white; font-family:'Oswald'; font-size:1.5rem;">BLUEBEAR HPC</div>
+            <div class="partner-logo" style="display:flex; align-items:center; color:white; font-family:'Oswald'; font-size:1.5rem; letter-spacing: 1px;">BLUEBEAR HPC</div>
         </div>
     </section>
 
