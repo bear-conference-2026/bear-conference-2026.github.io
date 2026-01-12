@@ -12,8 +12,7 @@
             --bear-white: #ffffff;
             --bear-cream: #f4f1ea;
             --accent-gold: #d4a373;
-            /* Semi-transparent background for glass effect */
-            --glass-bg: rgba(44, 57, 50, 0.75); 
+            --about-bg: #3d4d44; /* Slightly darker green for the blurb box */
         }
 
         body {
@@ -59,21 +58,22 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             padding: 60px 5% 100px 5%;
-            min-height: 80vh;
+            min-height: 85vh;
             position: relative; 
             align-items: start; 
             gap: 40px;
+            overflow: hidden; 
         }
 
         /* THE BEAR */
         .hero::after {
             content: "";
             position: absolute;
-            bottom: 10%;
+            bottom: 25%;
             right: -5%;
-            width: 80vw;
-            height: 80vw;
-            max-width: 1000px;
+            width: 85vw;
+            height: 85vw;
+            max-width: 1100px;
             background-image: url('Home_rem.png');
             background-size: contain;
             background-repeat: no-repeat;
@@ -106,20 +106,18 @@
             font-weight: 400;
         }
 
-        /* --- About Box (Glass Effect) --- */
+        /* --- About Blurb Box --- */
         .about-box {
             margin-top: 25px;
             max-width: 550px;
-            background-color: var(--glass-bg);
+            background-color: var(--about-bg);
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             border-left: 4px solid var(--accent-gold);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
         }
 
-        /* --- Register Box --- */
+        /* --- The Register Box --- */
         .register-box {
             background-color: var(--bear-dark);
             color: white;
@@ -158,10 +156,10 @@
             box-shadow: 5px 5px 0px var(--bear-dark);
         }
 
-        /* --- Stats Bar (Glass Effect Applied Here) --- */
+        /* --- Stats Bar --- */
         .stats-bar {
-            background-color: var(--glass-bg); /* Match About Box */
-            padding: 50px 5%;
+            background: rgba(0,0,0,0.3);
+            padding: 60px 5%;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 20px;
@@ -169,33 +167,20 @@
             position: relative;
             z-index: 20; 
             border-top: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px); /* Glass blur effect */
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
         }
 
-        .stat-item h3 { 
-            font-family: 'Oswald', sans-serif; 
-            font-size: 2.8rem; 
-            margin: 0; 
-            color: var(--accent-gold); 
-        }
-        .stat-item p { 
-            text-transform: uppercase; 
-            font-size: 0.85rem; 
-            letter-spacing: 2px; 
-            margin-top: 5px;
-            font-weight: 700;
-        }
+        .stat-item h3 { font-family: 'Oswald', sans-serif; font-size: 2.5rem; margin: 0; color: var(--accent-gold); }
+        .stat-item p { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
 
         /* --- Footer --- */
         footer {
-            padding: 30px 5%;
+            padding: 40px 5%;
             font-size: 0.8rem;
             opacity: 0.6;
             width: 100%;
             box-sizing: border-box;
-            background-color: var(--bear-dark); /* Darker footer for contrast */
+            background-color: var(--bear-green);
             position: relative;
             z-index: 30;
         }
@@ -205,10 +190,10 @@
             .register-box { justify-self: start; margin-top: 40px; }
             .hero-text h1 { font-size: 4rem; }
             .hero::after { 
-                width: 100vw; 
-                height: 100vw; 
-                bottom: 0; 
-                opacity: 0.2; 
+                width: 90vw; 
+                height: 90vw; 
+                bottom: -10%; 
+                opacity: 0.3; 
             }
         }
     </style>
@@ -236,8 +221,8 @@
             </div>
 
             <div class="about-box">
-                <h3 style="font-family: 'Oswald'; border-bottom: 2px solid var(--accent-gold); display: inline-block; margin-bottom: 12px; margin-top: 0; letter-spacing: 1px;">ABOUT THE CONFERENCE</h3>
-                <p style="margin: 0;">Join us for the 15th Annual BEAR PGR Conference! A postgraduate-led conference exploring cutting-edge research enabled by the Birmingham Environment for Academic Research (BEAR). Sponsored by Lenovo, the event also features exciting give-away prizes!</p>
+                <h3 style="font-family: 'Oswald'; border-bottom: 2px solid var(--accent-gold); display: inline-block; margin-bottom: 8px; margin-top: 0; letter-spacing: 1px;">ABOUT THE CONFERENCE</h3>
+                <p style="margin: 5px 0 0 0;">Join us for the 15th Annual BEAR PGR Conference! A postgraduate-led conference exploring cutting-edge research enabled by the Birmingham Environment for Academic Research (BEAR). Sponsored by Lenovo, the event also features exciting give-away prizes!</p>
             </div>
         </div>
 
