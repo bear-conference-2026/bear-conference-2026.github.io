@@ -12,7 +12,6 @@
             --bear-white: #ffffff;
             --bear-cream: #f4f1ea;
             --accent-gold: #d4a373;
-            --reg-purple: #190D21;
         }
 
         body {
@@ -22,7 +21,6 @@
             background-color: var(--bear-green);
             color: var(--bear-white);
             line-height: 1.6;
-            overflow-x: hidden; /* Prevents icon from causing scrollbars */
         }
 
         /* --- Navigation --- */
@@ -57,32 +55,33 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             padding: 60px 5%;
-            min-height: 80vh;
-            position: relative; /* Essential for the background icon */
-            align-items: start; /* Keeps Register box at the top */
+            min-height: 75vh;
+            position: relative; 
+            align-items: start; 
             gap: 40px;
+            /* This prevents the icon from crossing into the stats bar */
+            overflow: hidden; 
         }
 
         /* THE BACKGROUND ICON */
         .hero::after {
             content: "";
             position: absolute;
-            bottom: -20px;
-            right: -50px;
-            width: 500px;
-            height: 500px;
-            /* Replace the URL below with your actual icon/logo file */
+            bottom: -50px; /* Tucked slightly off-screen */
+            right: -80px;  /* Tucked slightly off-screen */
+            width: 450px;
+            height: 450px;
             background-image: url('https://cdn-icons-png.flaticon.com/512/2311/2311311.png');
             background-size: contain;
             background-repeat: no-repeat;
-            opacity: 0.1; /* Makes it subtle so text is readable */
+            opacity: 0.08; 
             z-index: 0;
-            pointer-events: none; /* Allows you to click 'through' the icon */
+            pointer-events: none;
         }
 
         .hero-text {
             position: relative;
-            z-index: 2; /* Keeps text above icon */
+            z-index: 2; 
         }
 
         .hero-text h1 {
@@ -94,7 +93,6 @@
             color: var(--bear-cream);
         }
 
-        /* Styling the lowercase x */
         .multiplier {
             text-transform: lowercase;
             font-size: 0.5em;
@@ -104,9 +102,9 @@
             font-weight: 400;
         }
 
-        /* --- The Register Box --- */
+        /* --- The Register Box (Back to Dark Green) --- */
         .register-box {
-            background-color: var(--reg-purple);
+            background-color: var(--bear-dark);
             color: white;
             padding: 30px;
             border-radius: 12px;
@@ -116,7 +114,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.35);
             transition: transform 0.3s ease;
             position: relative;
-            z-index: 5; /* Keeps box above icon */
+            z-index: 5; 
         }
 
         .register-box:hover {
@@ -154,7 +152,7 @@
 
         /* --- Stats Bar --- */
         .stats-bar {
-            background: rgba(0,0,0,0.2);
+            background: rgba(0,0,0,0.25);
             padding: 40px 5%;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -162,6 +160,7 @@
             text-align: center;
             position: relative;
             z-index: 10;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         .stat-item h3 {
@@ -182,7 +181,7 @@
             .hero { grid-template-columns: 1fr; }
             .register-box { justify-self: start; margin-top: 40px; }
             .hero-text h1 { font-size: 4rem; }
-            .hero::after { width: 300px; height: 300px; right: -20px; bottom: 0; }
+            .hero::after { width: 300px; height: 300px; right: -40px; bottom: -20px; }
         }
     </style>
 </head>
@@ -210,7 +209,7 @@
 
             <div style="margin-top: 40px; max-width: 500px;">
                 <h3 style="font-family: 'Oswald'; border-bottom: 2px solid var(--accent-gold); display: inline-block;">ABOUT THE CONFERENCE</h3>
-                <p>Join us for the 15th Annual BEAR PGR Conference! A postgraduate-led conference exploring cutting-edge research enabled by the Birmingham Environment for Academic Research (BEAR), UoB’s advanced research computing environment. Sponsored by Lenovo, the event also features exciting give-away prizes!</p>
+                <p>Join us for the 15th Annual BEAR PGR Conference! A postgraduate-led conference exploring cutting-edge research enabled by the Birmingham Environment for Academic Research (BEAR). Sponsored by Lenovo, the event also features exciting give-away prizes!</p>
             </div>
         </div>
 
@@ -227,15 +226,15 @@
             <p>Speakers</p>
         </div>
         <div class="stat-item">
-            <h3>3</h3>
-            <p>Days</p>
+            <h3>15+</h3>
+            <p>Posters</p>
         </div>
         <div class="stat-item">
-            <h3>5</h3>
-            <p>Workshops</p>
+            <h3>2</h3>
+            <p>Keynotes</p>
         </div>
         <div class="stat-item">
-            <h3>500+</h3>
+            <h3>20+</h3>
             <p>Attendees</p>
         </div>
     </section>
@@ -246,6 +245,3 @@
 
 </body>
 </html>
-
-
-
