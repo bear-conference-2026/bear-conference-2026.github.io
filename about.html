@@ -12,7 +12,7 @@
             --bear-white: #ffffff;
             --bear-cream: #f4f1ea;
             --accent-gold: #d4a373;
-            --glass-bg: rgba(44, 57, 50, 0.8);
+            --glass-bg: rgba(44, 57, 50, 0.85);
         }
 
         body {
@@ -60,7 +60,7 @@
         .about-header {
             padding: 80px 5% 40px 5%;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.2), transparent);
+            background: linear-gradient(rgba(0,0,0,0.3), transparent);
         }
 
         .about-header h1 {
@@ -71,12 +71,41 @@
             text-transform: uppercase;
         }
 
-        /* --- Content Grid --- */
+        /* --- Key Details Bar (NEW) --- */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 40px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .detail-item {
+            background: var(--glass-bg);
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 3px solid var(--accent-gold);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .detail-item h4 {
+            margin: 0 0 10px 0;
+            font-family: 'Oswald', sans-serif;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .detail-item p { margin: 0; font-weight: bold; }
+
+        /* --- Content Layout --- */
         .content-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            padding: 40px 5% 80px 5%;
+            padding: 40px 5%;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -86,9 +115,7 @@
             padding: 40px;
             border-radius: 15px;
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border-left: 4px solid var(--accent-gold);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .glass-card h2 {
@@ -96,46 +123,29 @@
             color: var(--accent-gold);
             text-transform: uppercase;
             margin-top: 0;
-            letter-spacing: 1px;
         }
 
-        .full-width {
-            grid-column: 1 / -1;
+        /* --- Map Section (NEW) --- */
+        .map-container {
+            width: 100%;
+            height: 400px;
+            margin-top: 40px;
+            filter: grayscale(0.5) contrast(1.2); /* Matches your aesthetic */
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        /* --- Key Points List --- */
-        .benefits-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .benefits-list li {
-            margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
-        }
-
-        .benefits-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--accent-gold);
-            font-weight: bold;
-        }
-
-        /* --- Footer --- */
         footer {
             padding: 40px 5%;
             background-color: var(--bear-dark);
+            text-align: center;
             font-size: 0.8rem;
             opacity: 0.7;
-            text-align: center;
         }
 
-        /* --- Responsive --- */
         @media (max-width: 900px) {
             .content-section { grid-template-columns: 1fr; }
-            .about-header h1 { font-size: 3.5rem; }
         }
     </style>
 </head>
@@ -145,54 +155,61 @@
         <a href="index.html" class="logo">Bear Conference</a>
         <div class="nav-links">
             <a href="about.html">About</a>
-            <a href="#schedule">Schedule</a>
-            <a href="#keynotes">Keynote</a>
-            <a href="#register">Register</a>
-            <a href="#contact">Contact</a>
+            <a href="index.html#schedule">Schedule</a>
+            <a href="index.html#keynotes">Keynote</a>
+            <a href="index.html#register">Register</a>
+            <a href="index.html#contact">Contact</a>
         </div>
     </nav>
 
     <header class="about-header">
         <h1>About the Conference</h1>
-        <p style="font-size: 1.2rem; max-width: 800px; margin: 20px auto; opacity: 0.9;">
-            The 15th Annual BEAR PGR Conference: Bridging Research, Innovation, and Computing.
-        </p>
     </header>
 
+    <section class="details-grid">
+        <div class="detail-item">
+            <h4>Date</h4>
+            <p>April 29, 2026</p>
+        </div>
+        <div class="detail-item">
+            <h4>Registration Deadline</h4>
+            <p>March 31, 2026</p>
+        </div>
+        <div class="detail-item">
+            <h4>Open To</h4>
+            <p>All PGRs & Staff</p>
+        </div>
+        <div class="detail-item">
+            <h4>Location</h4>
+            <p>University of Birmingham, UK</p>
+        </div>
+    </section>
+
     <main class="content-section">
-        
         <section class="glass-card">
             <h2>Our Mission</h2>
-            <p>The BEAR (Birmingham Environment for Academic Research) Conference is a premier event for postgraduate researchers to showcase work enabled by High Performance Computing. Originally created to give PhD students experience in leading academic events, it has grown into a vital interdisciplinary hub.</p>
-            <p>This year, under the theme <strong>"AI x Integrity,"</strong> we explore the ethical boundaries and technical possibilities of artificial intelligence in modern research.</p>
+            <p>The 15th Annual BEAR PGR Conference is a postgraduate-led event exploring cutting-edge research enabled by the Birmingham Environment for Academic Research. Our theme for 2026, <strong>AI x Integrity</strong>, focuses on the intersection of advanced computing and ethical research practices.</p>
         </section>
 
         <section class="glass-card">
             <h2>Why Attend?</h2>
-            <ul class="benefits-list">
-                <li><strong>Raise Your Profile:</strong> Present your research results in a professional yet welcoming environment.</li>
-                <li><strong>Interdisciplinary Networking:</strong> Connect with peers and experts from across the University who use BlueBEAR and HPC approaches.</li>
-                <li><strong>Skill Development:</strong> Learn about innovative techniques being used across diverse fields—from Biosciences to Economics.</li>
-                <li><strong>Prizes & Recognition:</strong> Compete for "Best Talk" and "Best Poster" awards, generously sponsored by Lenovo.</li>
-            </ul>
+            <p>This conference provides a unique platform for researchers to present their results, learn about innovative techniques across various fields, and network with peers who use BlueBEAR and HPC approaches.</p>
         </section>
 
-        <section class="glass-card full-width">
-            <h2>The 2026 Theme: AI x Integrity</h2>
-            <p>As AI tools become integrated into every stage of the research lifecycle, the 15th Annual Conference focuses on the dual pillars of <strong>Performance</strong> and <strong>Ethics</strong>. We aim to answer: How can we harness the power of BEAR's computing clusters to drive AI innovation while maintaining the highest standards of academic integrity?</p>
-            <p>Join us to discuss cross-cutting topics such as next-generation technology, algorithmic fairness, and the future of knowledge dissemination in a world shaped by Large Language Models and automated data analysis.</p>
-        </section>
-
-        <section class="glass-card">
-            <h2>Organised by PGRs, for PGRs</h2>
-            <p>The conference is entirely postgraduate-led, providing the committee with invaluable experience in project management, communication, and leadership. This grassroots approach ensures the event remains focused on the needs and interests of the junior research community at the University of Birmingham.</p>
-        </section>
-
-        <section class="glass-card">
-            <h2>Our Partners</h2>
-            <p>We are proud to be supported by <strong>Lenovo</strong> and the <strong>Advanced Research Computing (ARC)</strong> team. Their support allows us to provide high-quality catering, professional proceedings, and exciting giveaway prizes for our attendees.</p>
-        </section>
-
+        <div style="grid-column: 1 / -1;">
+            <h2 style="font-family: 'Oswald'; color: var(--accent-gold); text-align: center; text-transform: uppercase;">Where to find us</h2>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1m3!1d2431.1396860363!2d-1.9332205233189914!3d52.45030277204308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bc1001e309ad%3A0x675850989f67a28e!2sUniversity%20of%20Birmingham!5e0!3m2!1sen!2suk!4v1705000000000!5m2!1sen!2suk" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
     </main>
 
     <footer>
