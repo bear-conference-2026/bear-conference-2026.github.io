@@ -1,633 +1,308 @@
 <!DOCTYPE html> 
-
- <html lang="en"> 
-
- <head> 
-
-     <meta charset="UTF-8"> 
-
-     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-
-     <title>About | BEAR Conference 2026</title> 
-
-
-     <link 
-
-href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;700&display=swap"
-
- rel="stylesheet"> 
-
-     <style> 
-
-         :root { 
-
-             --bear-green: #4F6458; 
-
-             --bear-dark: #2c3932; 
-
-             --bear-white: #ffffff; 
-
-             --bear-cream: #f4f1ea; 
-
-             --accent-gold: #d4a373; 
-
-             --glass-bg: rgba(44, 57, 50, 0.85); 
-
-         } 
-
-
-         html { scroll-behavior: smooth; } 
-
-
-         body { 
-
-             margin: 0; 
-
-             padding: 0; 
-
-             font-family: 'Inter', sans-serif; 
-
-             background-color: var(--bear-green); 
-
-             color: var(--bear-white); 
-
-             line-height: 1.6; 
-
-             overflow-x: hidden; 
-
-             width: 100%; 
-
-         } 
-
-
-         /* --- Navigation --- */ 
-
-         nav { 
-
-             display: flex; 
-
-             justify-content: space-between; 
-
-             align-items: center; 
-
-             padding: 20px 5%; 
-
-             background-color: rgba(0,0,0,0.25); 
-
-             position: sticky; 
-
-             top: 0; 
-
-             z-index: 100; 
-
-             backdrop-filter: blur(10px); 
-
-             -webkit-backdrop-filter: blur(10px); 
-
-         } 
-
-
-         .logo { 
-
-             font-family: 'Oswald', sans-serif; 
-
-             font-size: 1.5rem; 
-
-             text-transform: uppercase; 
-
-             letter-spacing: 2px; 
-
-             color: var(--bear-white); 
-
-             text-decoration: none; 
-
-         } 
-
-
-         .nav-links a { 
-
-             color: white; 
-
-             text-decoration: none; 
-
-             margin-left: 30px; 
-
-             font-weight: bold; 
-
-             text-transform: uppercase; 
-
-             font-size: 0.9rem; 
-
-         } 
-
-
-         /* --- Header Section (Home Page Style) --- */ 
-
-         .about-header { 
-
-             position: relative; 
-
-             padding: 120px 5% 100px 5%; 
-
-             text-align: center; 
-
-             overflow: hidden; 
-
-             min-height: 30vh; 
-
-             display: flex; 
-
-             flex-direction: column; 
-
-             justify-content: center; 
-
-             background: linear-gradient(rgba(79, 100, 88, 0.7), rgba(79, 100, 88, 1)); 
-
-         } 
-
-
-         .about-header::after { 
-
-             content: ""; 
-
-             position: absolute; 
-
-             top: 0; 
-
-             right: 0; 
-
-             width: 100%; 
-
-             height: 100%; 
-
-             background-image: url('About_rem.png');  
-
-             background-size: contain; 
-
-             background-repeat: no-repeat; 
-
-             background-position: center right; 
-
-             opacity: 0.80;  
-
-             z-index: 0; 
-
-         } 
-
-
-         .header-content { position: relative; z-index: 10; } 
-
-
-         .about-header h1 { 
-
-             font-family: 'Oswald', sans-serif; 
-
-             font-size: clamp(3rem, 8vw, 5.5rem); 
-
-             margin: 0; 
-
-             color: var(--bear-cream); 
-
-             text-transform: uppercase; 
-
-             line-height: 0.9; 
-
-         } 
-
-
-         .subheading { 
-
-             font-size: clamp(1rem, 2vw, 1.3rem); 
-
-             margin-top: 15px; 
-
-             opacity: 0.9; 
-
-             letter-spacing: 1px; 
-
-         } 
-
-
-         /* --- Horizontal Stats-Style Banner --- */ 
-
-         .details-banner { 
-
-             background-color: var(--glass-bg); 
-
-             padding: 50px 5%; 
-
-             display: grid; 
-
-             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-
-             gap: 20px; 
-
-             text-align: center; 
-
-             position: relative; 
-
-             z-index: 20;  
-
-             border-top: 1px solid rgba(255,255,255,0.1); 
-
-             border-bottom: 1px solid rgba(255,255,255,0.1); 
-
-             backdrop-filter: blur(15px); 
-
-             -webkit-backdrop-filter: blur(15px); 
-
-             box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
-
-         } 
-
-
-         .detail-item h4 {  
-
-             font-family: 'Oswald', sans-serif;  
-
-             font-size: 0.85rem;  
-
-             margin: 0 0 10px 0;  
-
-             color: var(--accent-gold);  
-
-             text-transform: uppercase; 
-
-             letter-spacing: 2px; 
-
-         } 
-
-
-         .detail-item p {  
-
-             font-size: 1.4rem;  
-
-             margin: 0; 
-
-             font-weight: 700; 
-
-             color: var(--bear-cream); 
-
-         } 
-
-
-         /* --- Content Layout --- */ 
-
-         .content-section { 
-
-             display: grid; 
-
-             grid-template-columns: 1fr 1fr; 
-
-             gap: 40px; 
-
-             padding: 80px 5%; 
-
-             max-width: 1400px; 
-
-             margin: 0 auto; 
-
-         } 
-
-
-         .glass-card { 
-
-             background-color: var(--glass-bg); 
-
-             padding: 40px; 
-
-             border-radius: 15px; 
-
-             backdrop-filter: blur(10px); 
-
-             border-left: 4px solid var(--accent-gold); 
-
-             box-shadow: 0 8px 32px rgba(0,0,0,0.1); 
-
-         } 
-
-
-         .glass-card h2 { 
-
-             font-family: 'Oswald', sans-serif; 
-
-             color: var(--accent-gold); 
-
-             text-transform: uppercase; 
-
-             margin-top: 0; 
-
-             letter-spacing: 1px; 
-
-         } 
-
-
-         /* --- Partners Section --- */ 
-
-         .partners-section { 
-
-             padding: 80px 5%; 
-
-             text-align: center; 
-
-             background: rgba(0,0,0,0.15); 
-
-         } 
-
-
-         .partners-section h2 { 
-
-             font-family: 'Oswald', sans-serif; 
-
-             text-transform: uppercase; 
-
-             letter-spacing: 3px; 
-
-             margin-bottom: 50px; 
-
-             color: var(--accent-gold); 
-
-         } 
-
-
-         .logo-grid { 
-
-             display: flex; 
-
-             justify-content: center; 
-
-             align-items: center; 
-
-             flex-wrap: wrap; 
-
-             gap: 80px; 
-
-         } 
-
-
-         .partner-logo { 
-
-             height: 50px; 
-
-             filter: grayscale(1) brightness(2); 
-
-             opacity: 0.7; 
-
-             transition: 0.3s ease; 
-
-         } 
-
-
-         .partner-logo:hover { 
-
-             filter: grayscale(0) brightness(1); 
-
-             opacity: 1; 
-
-             transform: scale(1.1); 
-
-         } 
-
-
-         .map-container { 
-
-             width: 100%; 
-
-             height: 400px; 
-
-             margin-top: 20px; 
-
-             border-radius: 15px; 
-
-             overflow: hidden; 
-
-             filter: grayscale(0.5); 
-
-         } 
-
-
-         footer { 
-
-             padding: 40px 5%; 
-
-             background-color: var(--bear-dark); 
-
-             text-align: center; 
-
-             font-size: 0.8rem; 
-
-             opacity: 0.7; 
-
-         } 
-
-
-         @media (max-width: 768px) { 
-
-             .content-section { grid-template-columns: 1fr; } 
-
-             .details-banner { grid-template-columns: 1fr 1fr; } 
-
-         } 
-
-     </style> 
-
- </head> 
-
- <body> 
-
-
-     <nav> 
-
-         <a href="index.html" class="logo">Bear Conference</a> 
-
-         <div class="nav-links"> 
-
-             <a href="about.html">About</a> 
-
-             <a href="index.html#schedule">Schedule</a> 
-
-             <a href="index.html#keynotes">Keynote</a> 
-
-             <a href="index.html#register">Register</a> 
-
-             <a href="index.html#contact">Contact</a> 
-
-         </div> 
-
-     </nav> 
-
-
-     <header class="about-header"> 
-
-         <div class="header-content"> 
-
-             <h1>About the Conference</h1> 
-
-
-             <p class="subheading">15th Annual BEAR PGR 
-
-Conference: Bridging Research, Innovation, and Computing. Discover how 
-
-BEAR resources are driving innovative AI research focused on ethics and 
-
-integrity. </p> 
-
-         </div> 
-
-     </header> 
-
-
-     <section class="details-banner"> 
-
-         <div class="detail-item"> 
-
-             <h4>Date</h4> 
-
-             <p>April 29, 2026</p> 
-
-         </div> 
-
-         <div class="detail-item"> 
-
-             <h4>Deadline</h4> 
-
-             <p>March 31, 2026</p> 
-
-         </div> 
-
-         <div class="detail-item"> 
-
-             <h4>Open To</h4> 
-
-             <p>PGRs & Staff</p> 
-
-         </div> 
-
-         <div class="detail-item"> 
-
-             <h4>Location</h4> 
-
-             <p>Birmingham, UK</p> 
-
-         </div> 
-
-     </section> 
-
-
-     <main class="content-section"> 
-
-         <section class="glass-card"> 
-
-             <h2>Our Mission</h2> 
-
-
-             <p>The BEAR (Birmingham Environment for Academic 
-
-Research) Conference is a premier event for postgraduate researchers to 
-
-showcase work enabled by High Performance Computing. It has grown into a
-
- vital interdisciplinary hub for innovation.</p> 
-
-
-             <p>This year, under the theme <strong>"AI x 
-
-Integrity,"</strong> we explore the ethical boundaries and 
-
-technical possibilities of artificial intelligence in modern 
-
-research.</p> 
-
-         </section> 
-
-
-         <section class="glass-card"> 
-
-             <h2>Why Attend?</h2> 
-
-
-             <p>This conference provides a unique platform for 
-
-researchers to present their results, learn about innovative techniques 
-
-across various fields, and network with peers who use BlueBEAR and HPC 
-
-approaches.</p> 
-
-
-             <p> Also, stand a chance to compete for "Best Talk" 
-
-and "Best Poster" awards, generously sponsored by Lenovo.</p> 
-
-         </section> 
-
-
-         <div style="grid-column: 1 / -1; margin-top: 40px;"> 
-
-
-             <h2 style="font-family: 'Oswald'; color: 
-
-var(--accent-gold); text-align: center; text-transform: uppercase; 
-
-letter-spacing: 2px;">Where to find us</h2> 
-
-             <div class="map-container"> 
-
-
-                 <iframe 
-
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2431.144883398991!2d-1.932918823326164!3d52.45021267204368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bc106f236087%3A0x62804367c2937905!2sUniversity%20of%20Birmingham!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk"
-
- width="100%" height="100%" style="border:0;" allowfullscreen="" 
-
-loading="lazy"></iframe> 
-
-             </div> 
-
-         </div> 
-
-     </main> 
-
-
-     <section class="partners-section"> 
-
-         <h2>Our Partners</h2> 
-
-         <div class="logo-grid"> 
-
-
-             <img 
-
-src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Lenovo_logo_2015.svg"
-
- alt="Lenovo" class="partner-logo"> 
-
-
-             <img 
-
-src="https://upload.wikimedia.org/wikipedia/en/thumb/6/68/University_of_Birmingham_logo.svg/1200px-University_of_Birmingham_logo.svg.png"
-
- alt="University of Birmingham" class="partner-logo"> 
-
-
-             <div class="partner-logo" style="display:flex; 
-
-align-items:center; color:white; font-family:'Oswald'; font-size:1.5rem;
-
- letter-spacing: 1px;">BLUEBEAR HPC</div> 
-
-         </div> 
-
-     </section> 
-
-
-     <footer> 
-
-         © 2026 BEAR Conference. Hosted on GitHub Pages. 
-
-     </footer> 
-
-
- </body> 
-
- </html>
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>About | BEAR Conference 2026</title> 
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet"> 
+    <style> 
+        :root { 
+            --bear-green: #4F6458; 
+            --bear-dark: #2c3932; 
+            --bear-white: #ffffff; 
+            --bear-cream: #f4f1ea; 
+            --accent-gold: #d4a373; 
+            --glass-bg: rgba(44, 57, 50, 0.85); 
+        } 
+
+        html { scroll-behavior: smooth; } 
+
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bear-green); 
+            color: var(--bear-white); 
+            line-height: 1.6; 
+            overflow-x: hidden; 
+            width: 100%; 
+        } 
+
+        /* --- Navigation --- */ 
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 20px 5%; 
+            background-color: rgba(0,0,0,0.25); 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px); 
+        } 
+
+        .logo { 
+            font-family: 'Oswald', sans-serif; 
+            font-size: 1.5rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            color: var(--bear-white); 
+            text-decoration: none; 
+        } 
+
+        .nav-links a { 
+            color: white; 
+            text-decoration: none; 
+            margin-left: 30px; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            font-size: 0.9rem; 
+        } 
+
+        /* --- Header Section Updated --- */ 
+        .about-header { 
+            position: relative; 
+            padding: 80px 5% 60px 5%; 
+            background: linear-gradient(rgba(79, 100, 88, 0.7), rgba(79, 100, 88, 1)); 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        } 
+
+        /* Top Row Container */
+        .header-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .header-img {
+            max-height: 180px; /* Adjust size as needed */
+            width: auto;
+            object-fit: contain;
+        }
+
+        .about-header h1 { 
+            font-family: 'Oswald', sans-serif; 
+            font-size: clamp(2.5rem, 6vw, 4.5rem); 
+            margin: 0; 
+            color: var(--bear-cream); 
+            text-transform: uppercase; 
+            line-height: 1; 
+            text-align: left;
+        } 
+
+        .subheading { 
+            font-size: clamp(1rem, 2vw, 1.3rem); 
+            margin-top: 20px; 
+            opacity: 0.9; 
+            letter-spacing: 1px; 
+            max-width: 900px;
+            text-align: center;
+        } 
+
+        /* --- Rest of your original styles --- */ 
+        .details-banner { 
+            background-color: var(--glass-bg); 
+            padding: 50px 5%; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+            gap: 20px; 
+            text-align: center; 
+            position: relative; 
+            z-index: 20;  
+            border-top: 1px solid rgba(255,255,255,0.1); 
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+            backdrop-filter: blur(15px); 
+            -webkit-backdrop-filter: blur(15px); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+        } 
+
+        .detail-item h4 {  
+            font-family: 'Oswald', sans-serif;  
+            font-size: 0.85rem;  
+            margin: 0 0 10px 0;  
+            color: var(--accent-gold);  
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+        } 
+
+        .detail-item p {  
+            font-size: 1.4rem;  
+            margin: 0; 
+            font-weight: 700; 
+            color: var(--bear-cream); 
+        } 
+
+        .content-section { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 40px; 
+            padding: 80px 5%; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+        } 
+
+        .glass-card { 
+            background-color: var(--glass-bg); 
+            padding: 40px; 
+            border-radius: 15px; 
+            backdrop-filter: blur(10px); 
+            border-left: 4px solid var(--accent-gold); 
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1); 
+        } 
+
+        .glass-card h2 { 
+            font-family: 'Oswald', sans-serif; 
+            color: var(--accent-gold); 
+            text-transform: uppercase; 
+            margin-top: 0; 
+            letter-spacing: 1px; 
+        } 
+
+        .partners-section { 
+            padding: 80px 5%; 
+            text-align: center; 
+            background: rgba(0,0,0,0.15); 
+        } 
+
+        .partners-section h2 { 
+            font-family: 'Oswald', sans-serif; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            margin-bottom: 50px; 
+            color: var(--accent-gold); 
+        } 
+
+        .logo-grid { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 80px; 
+        } 
+
+        .partner-logo { 
+            height: 50px; 
+            filter: grayscale(1) brightness(2); 
+            opacity: 0.7; 
+            transition: 0.3s ease; 
+        } 
+
+        .partner-logo:hover { 
+            filter: grayscale(0) brightness(1); 
+            opacity: 1; 
+            transform: scale(1.1); 
+        } 
+
+        .map-container { 
+            width: 100%; 
+            height: 400px; 
+            margin-top: 20px; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            filter: grayscale(0.5); 
+        } 
+
+        footer { 
+            padding: 40px 5%; 
+            background-color: var(--bear-dark); 
+            text-align: center; 
+            font-size: 0.8rem; 
+            opacity: 0.7; 
+        } 
+
+        @media (max-width: 768px) { 
+            .header-top-row { flex-direction: column; text-align: center; }
+            .about-header h1 { text-align: center; }
+            .content-section { grid-template-columns: 1fr; } 
+            .details-banner { grid-template-columns: 1fr 1fr; } 
+        } 
+    </style> 
+</head> 
+<body> 
+
+    <nav> 
+        <a href="index.html" class="logo">Bear Conference</a> 
+        <div class="nav-links"> 
+            <a href="about.html">About</a> 
+            <a href="index.html#schedule">Schedule</a> 
+            <a href="index.html#keynotes">Keynote</a> 
+            <a href="index.html#register">Register</a> 
+            <a href="index.html#contact">Contact</a> 
+        </div> 
+    </nav> 
+
+    <header class="about-header"> 
+        <div class="header-top-row">
+            <img src="About_rem.png" alt="BEAR Logo" class="header-img">
+            <h1>About the<br>Conference</h1> 
+        </div>
+
+        <p class="subheading">
+            15th Annual BEAR PGR Conference: Bridging Research, Innovation, and Computing. 
+            Discover how BEAR resources are driving innovative AI research focused on ethics and integrity. 
+        </p> 
+    </header> 
+
+    <section class="details-banner"> 
+        <div class="detail-item"> 
+            <h4>Date</h4> 
+            <p>April 29, 2026</p> 
+        </div> 
+        <div class="detail-item"> 
+            <h4>Deadline</h4> 
+            <p>March 31, 2026</p> 
+        </div> 
+        <div class="detail-item"> 
+            <h4>Open To</h4> 
+            <p>PGRs & Staff</p> 
+        </div> 
+        <div class="detail-item"> 
+            <h4>Location</h4> 
+            <p>Birmingham, UK</p> 
+        </div> 
+    </section> 
+
+    <main class="content-section"> 
+        <section class="glass-card"> 
+            <h2>Our Mission</h2> 
+            <p>The BEAR (Birmingham Environment for Academic Research) Conference is a premier event for postgraduate researchers to showcase work enabled by High Performance Computing. It has grown into a vital interdisciplinary hub for innovation.</p> 
+            <p>This year, under the theme <strong>"AI x Integrity,"</strong> we explore the ethical boundaries and technical possibilities of artificial intelligence in modern research.</p> 
+        </section> 
+
+        <section class="glass-card"> 
+            <h2>Why Attend?</h2> 
+            <p>This conference provides a unique platform for researchers to present their results, learn about innovative techniques across various fields, and network with peers who use BlueBEAR and HPC approaches.</p> 
+            <p> Also, stand a chance to compete for "Best Talk" and "Best Poster" awards, generously sponsored by Lenovo.</p> 
+        </section> 
+
+        <div style="grid-column: 1 / -1; margin-top: 40px;"> 
+            <h2 style="font-family: 'Oswald'; color: var(--accent-gold); text-align: center; text-transform: uppercase; letter-spacing: 2px;">Where to find us</h2> 
+            <div class="map-container"> 
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2431.5714771960233!2d-1.9330766!3d52.450711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48709400293026a7%3A0x6a2c3a594895c102!2sUniversity%20of%20Birmingham!5e0!3m2!1sen!2suk!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe> 
+            </div> 
+        </div> 
+    </main> 
+
+    <section class="partners-section"> 
+        <h2>Our Partners</h2> 
+        <div class="logo-grid"> 
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Lenovo_logo_2015.svg" alt="Lenovo" class="partner-logo"> 
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/68/University_of_Birmingham_logo.svg/1200px-University_of_Birmingham_logo.svg.png" alt="University of Birmingham" class="partner-logo"> 
+            <div class="partner-logo" style="display:flex; align-items:center; color:white; font-family:'Oswald'; font-size:1.5rem; letter-spacing: 1px;">BLUEBEAR HPC</div> 
+        </div> 
+    </section> 
+
+    <footer> 
+        © 2026 BEAR Conference. Hosted on GitHub Pages. 
+    </footer> 
+
+</body> 
+</html>
