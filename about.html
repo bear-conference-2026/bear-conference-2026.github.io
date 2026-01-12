@@ -60,7 +60,7 @@
             font-size: 0.9rem;
         }
 
-        /* --- Header Section (Home Page Style) --- */
+        /* --- Header Section --- */
         .about-header {
             position: relative;
             padding: 120px 5% 100px 5%;
@@ -104,12 +104,9 @@
             margin-top: 15px;
             opacity: 0.9;
             letter-spacing: 1px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        /* --- Fixed Horizontal Stats-Style Banner --- */
+        /* --- Updated Horizontal Banner --- */
         .details-banner {
             background-color: var(--glass-bg);
             padding: 40px 5%;
@@ -126,23 +123,20 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        /* The Gold Data (Primary Focus) */
-        .detail-item .data-text { 
+        .detail-item .detail-data { 
             font-family: 'Oswald', sans-serif; 
-            font-size: 1.6rem; 
+            font-size: 1.8rem; /* Large primary text */
             margin: 0; 
-            color: var(--accent-gold); 
+            color: var(--accent-gold); /* Gold Primary */
             text-transform: uppercase;
-            font-weight: 700;
             line-height: 1.1;
         }
 
-        /* The White Labels (Secondary beneath) */
-        .detail-item .label-text { 
-            font-size: 0.75rem; 
+        .detail-item .detail-label { 
+            font-size: 0.75rem; /* Smaller secondary text */
             margin: 8px 0 0 0;
             font-weight: 400;
-            color: rgba(255, 255, 255, 0.7); /* Light white */
+            color: rgba(255, 255, 255, 0.7); /* Light white secondary */
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -230,7 +224,7 @@
         @media (max-width: 768px) {
             .content-section { grid-template-columns: 1fr; }
             .details-banner { grid-template-columns: 1fr 1fr; }
-            .detail-item .data-text { font-size: 1.3rem; }
+            .detail-item .detail-data { font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -250,26 +244,26 @@
     <header class="about-header">
         <div class="header-content">
             <h1>About the Conference</h1>
-            <p class="subheading">15th Annual BEAR PGR Conference: Bridging Research, Innovation, and Computing. Discover how BEAR resources are driving innovative AI research focused on ethics and integrity.</p>
+            <p class="subheading">15th Annual BEAR PGR Conference: Bridging Research, Innovation, and Computing.</p>
         </div>
     </header>
 
     <section class="details-banner">
         <div class="detail-item">
-            <p class="data-text">April 29, 2026</p>
-            <p class="label-text">Date</p>
+            <p class="detail-data">April 29, 2026</p>
+            <p class="detail-label">Date</p>
         </div>
         <div class="detail-item">
-            <p class="data-text">March 31, 2026</p>
-            <p class="label-text">Deadline</p>
+            <p class="detail-data">March 31, 2026</p>
+            <p class="detail-label">Deadline</p>
         </div>
         <div class="detail-item">
-            <p class="data-text">PGRs & Staff</p>
-            <p class="label-text">Open To</p>
+            <p class="detail-data">PGRs & Staff</p>
+            <p class="detail-label">Open To</p>
         </div>
         <div class="detail-item">
-            <p class="data-text">Birmingham, UK</p>
-            <p class="label-text">Location</p>
+            <p class="detail-data">Birmingham, UK</p>
+            <p class="detail-label">Location</p>
         </div>
     </section>
 
@@ -277,13 +271,11 @@
         <section class="glass-card">
             <h2>Our Mission</h2>
             <p>The BEAR (Birmingham Environment for Academic Research) Conference is a premier event for postgraduate researchers to showcase work enabled by High Performance Computing. It has grown into a vital interdisciplinary hub for innovation.</p>
-            <p>This year, under the theme <strong>"AI x Integrity,"</strong> we explore the ethical boundaries and technical possibilities of artificial intelligence in modern research.</p>
         </section>
 
         <section class="glass-card">
             <h2>Why Attend?</h2>
             <p>This conference provides a unique platform for researchers to present their results, learn about innovative techniques across various fields, and network with peers who use BlueBEAR and HPC approaches.</p>
-            <p> Also, stand a chance to compete for "Best Talk" and "Best Poster" awards, generously sponsored by Lenovo.</p>
         </section>
 
         <div style="grid-column: 1 / -1; margin-top: 40px;">
