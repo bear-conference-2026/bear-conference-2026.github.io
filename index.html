@@ -68,14 +68,14 @@
 
         /* --- The Register Box (Right Corner) --- */
         .register-box {
-            background-color: var(--bear-dark);
+            background-color: #190D21;
             color: white;
             padding: 30px;
             border-radius: 12px;
             width: 250px;
             height: fit-content;
             justify-self: end;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             transition: transform 0.3s ease;
         }
 
@@ -155,6 +155,16 @@
             .register-box { justify-self: start; margin-top: 40px; }
             .hero-text h1 { font-size: 4rem; }
         }
+
+/* Styling the lowercase x specifically */
+.multiplier {
+    text-transform: lowercase;
+    font-size: 0.6em; /* Slightly smaller than the main text */
+    margin: 0 15px;  /* Adds breathing room around the x */
+    font-family: 'Inter', sans-serif; /* Cleaner font for the x */
+    vertical-align: middle;
+}
+        
     </style>
 </head>
 <body>
@@ -172,7 +182,8 @@
 
     <main class="hero">
         <div class="hero-text">
-            <h1>AI <sub>x</sub> INTEGRITY<br>Conference<br>2026</h1>
+            <div class="hero-text">
+            <h1>AI <span class="multiplier">x</span> INTEGRITY<br>Conference<br>2026</h1>
             
             <div class="info-bubble">
                 APRIL.29, 2026<br>
@@ -217,3 +228,6 @@
 
 </body>
 </html>
+
+
+
