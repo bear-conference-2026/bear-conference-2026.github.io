@@ -104,12 +104,15 @@
             margin-top: 15px;
             opacity: 0.9;
             letter-spacing: 1px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* --- Horizontal Stats-Style Banner --- */
+        /* --- Fixed Horizontal Stats-Style Banner --- */
         .details-banner {
             background-color: var(--glass-bg);
-            padding: 50px 5%;
+            padding: 40px 5%;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px;
@@ -123,20 +126,25 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .detail-item h4 { 
+        /* The Gold Data (Primary Focus) */
+        .detail-item .data-text { 
             font-family: 'Oswald', sans-serif; 
-            font-size: 0.85rem; 
-            margin: 0 0 10px 0; 
+            font-size: 1.6rem; 
+            margin: 0; 
             color: var(--accent-gold); 
             text-transform: uppercase;
-            letter-spacing: 2px;
+            font-weight: 700;
+            line-height: 1.1;
         }
 
-        .detail-item p { 
-            font-size: 1.4rem; 
-            margin: 0;
-            font-weight: 700;
-            color: var(--bear-cream);
+        /* The White Labels (Secondary beneath) */
+        .detail-item .label-text { 
+            font-size: 0.75rem; 
+            margin: 8px 0 0 0;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7); /* Light white */
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         /* --- Content Layout --- */
@@ -222,6 +230,7 @@
         @media (max-width: 768px) {
             .content-section { grid-template-columns: 1fr; }
             .details-banner { grid-template-columns: 1fr 1fr; }
+            .detail-item .data-text { font-size: 1.3rem; }
         }
     </style>
 </head>
@@ -241,26 +250,26 @@
     <header class="about-header">
         <div class="header-content">
             <h1>About the Conference</h1>
-            <p class="subheading">15th Annual BEAR PGR Conference: Bridging Research, Innovation, and Computing. Discover how BEAR resources are driving innovative AI research focused on ethics and integrity. </p>
+            <p class="subheading">15th Annual BEAR PGR Conference: Bridging Research, Innovation, and Computing. Discover how BEAR resources are driving innovative AI research focused on ethics and integrity.</p>
         </div>
     </header>
 
     <section class="details-banner">
         <div class="detail-item">
-            <h4>Date</h4>
-            <p>April 29, 2026</p>
+            <p class="data-text">April 29, 2026</p>
+            <p class="label-text">Date</p>
         </div>
         <div class="detail-item">
-            <h4>Deadline</h4>
-            <p>March 31, 2026</p>
+            <p class="data-text">March 31, 2026</p>
+            <p class="label-text">Deadline</p>
         </div>
         <div class="detail-item">
-            <h4>Open To</h4>
-            <p>PGRs & Staff</p>
+            <p class="data-text">PGRs & Staff</p>
+            <p class="label-text">Open To</p>
         </div>
         <div class="detail-item">
-            <h4>Location</h4>
-            <p>Birmingham, UK</p>
+            <p class="data-text">Birmingham, UK</p>
+            <p class="label-text">Location</p>
         </div>
     </section>
 
