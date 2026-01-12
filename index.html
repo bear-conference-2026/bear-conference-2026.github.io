@@ -1,54 +1,256 @@
-<div class="bear-sticker-container">
-    <img src="your-bear-sticker.png" alt="Bear Mascot" class="bear-sticker">
-    
-    <div class="overlay-text">
-        <p>Est. 2025</p>
-        <span>San Francisco, CA</span>
-    </div>
-</div>
-
-<style>
-    /* The container allows us to anchor the bear to a specific spot */
-    .bear-sticker-container {
-        position: fixed; /* Keeps it in the bottom right even when scrolling */
-        bottom: 20px;
-        right: 20px;
-        width: 300px; /* Adjust based on your sticker size */
-        z-index: 10;
-        pointer-events: none; /* Allows you to click "through" the image if buttons are behind it */
-    }
-
-    .bear-sticker {
-        width: 100%;
-        height: auto;
-        display: block;
-        opacity: 0.9; /* Slight transparency to blend with the green background */
-    }
-
-    .overlay-text {
-        position: absolute;
-        top: 50%; /* Adjust these % to position text exactly over the bear */
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: var(--bear-cream);
-        font-family: 'Oswald', sans-serif;
-        text-align: center;
-        text-transform: uppercase;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Makes text readable over the image */
-    }
-
-    .overlay-text p {
-        font-size: 1.5rem;
-        margin: 0;
-    }
-
-    /* Mobile fix: Hide or shrink the bear so it doesn't block content */
-    @media (max-width: 768px) {
-        .bear-sticker-container {
-            width: 150px;
-            bottom: 10px;
-            right: 10px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEAR Conference 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bear-green: #4F6458;
+            --bear-dark-green: #2C3932;
+            --bear-umber: #3E322B; /* Darker brown for the register box */
+            --bear-umber-dark: #2A221D; /* For the borders */
+            --bear-white: #ffffff;
+            --bear-cream: #f4f1ea;
+            --accent-gold: #d4a373;
         }
-        .overlay-text p { font-size: 0.9rem; }
-    }
-</style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bear-green);
+            color: var(--bear-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 5%;
+            background-color: rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            padding: 60px 5%;
+            min-height: 65vh;
+            align-items: start;
+            position: relative;
+        }
+
+        .hero-text h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(4.5rem, 12vw, 9rem);
+            line-height: 0.85;
+            text-transform: uppercase;
+            margin: 0;
+            color: var(--bear-cream);
+            letter-spacing: -2px;
+        }
+
+        /* --- Updated Darker Register Box --- */
+        .register-box {
+            background-color: var(--bear-brown, #3E322B);
+            color: white;
+            padding: 40px;
+            width: 280px;
+            justify-self: end;
+            /* Added prominent top and bottom borders */
+            border-top: 8px solid var(--bear-umber-dark);
+            border-bottom: 8px solid var(--bear-umber-dark);
+            border-left: 1px solid rgba(255,255,255,0.05);
+            border-right: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 20px 20px 40px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .register-box p { 
+            margin: 0; 
+            font-size: 0.7rem; 
+            text-transform: uppercase; 
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+        }
+
+        .register-box h2 { 
+            margin: 15px 0; 
+            font-family: 'Oswald', sans-serif; 
+            font-size: 2.4rem;
+            line-height: 1;
+            letter-spacing: 1px;
+        }
+        
+        .btn-register {
+            display: inline-block;
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 5px;
+            transition: 0.3s;
+        }
+
+        .btn-register:hover {
+            color: var(--accent-gold);
+        }
+
+        /* --- Info Bubbles --- */
+        .info-bubble {
+            background: var(--bear-cream);
+            color: var(--bear-dark-green);
+            padding: 15px 30px;
+            border-radius: 50px;
+            width: fit-content;
+            margin-top: 30px;
+            font-weight: 800;
+            font-family: 'Oswald', sans-serif;
+            box-shadow: 4px 4px 0px var(--bear-umber-dark);
+        }
+
+        /* --- Bear Sticker Overlay Area --- */
+        .sticker-zone {
+            position: relative;
+            padding: 80px 5%;
+            display: flex;
+            justify-content: flex-end; /* Aligns to right */
+        }
+
+        .bear-sticker-container {
+            position: relative;
+            width: 350px;
+        }
+
+        .bear-img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.2));
+        }
+
+        .overlay-content {
+            position: absolute;
+            top: 45%; /* Adjust this based on your bear's stomach/sign */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 80%;
+            pointer-events: none;
+        }
+
+        .overlay-content h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            margin: 0;
+            color: var(--bear-umber-dark);
+            text-transform: uppercase;
+        }
+
+        /* --- Stats Bar --- */
+        .stats-bar {
+            background: var(--bear-dark-green);
+            padding: 60px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            margin: 0;
+            color: var(--accent-gold);
+        }
+
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; }
+            .register-box { justify-self: start; width: 100%; box-sizing: border-box; }
+            .sticker-zone { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Bear Conference 2026</div>
+        <div class="nav-links">
+            <a href="#speakers">Speakers</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#venue">Venue</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="hero">
+            <div class="hero-text">
+                <h1>Digital<br>Conference<br>2026</h1>
+                <div class="info-bubble">
+                    Oct. 21–23 // San Francisco
+                </div>
+                <div style="margin-top: 40px; max-width: 500px; opacity: 0.9;">
+                    <p>Building the future of the open web, one paw-print at a time. Join us for three days of deep-dive workshops and keynote sessions.</p>
+                </div>
+            </div>
+
+            <div class="register-box">
+                <p>Booking Open</p>
+                <h2>REGISTER<br>TICKETS</h2>
+                <a href="#" class="btn-register">Get Your Pass &rarr;</a>
+            </div>
+        </div>
+
+        <section class="sticker-zone">
+            <div class="bear-sticker-container">
+                <img src="bear-icon.png" alt="Mascot" class="bear-img">
+                <div class="overlay-content">
+                    <h4>BEAR<br>2026</h4>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="stats-bar">
+        <div class="stat-item">
+            <h3>20+</h3>
+            <p>Experts</p>
+        </div>
+        <div class="stat-item">
+            <h3>3</h3>
+            <p>Days</p>
+        </div>
+        <div class="stat-item">
+            <h3>12</h3>
+            <p>Workshops</p>
+        </div>
+    </section>
+
+    <footer style="padding: 40px 5%; background: #1a231f; font-size: 0.8rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
+        <p>&copy; 2026 BEAR Conference. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
