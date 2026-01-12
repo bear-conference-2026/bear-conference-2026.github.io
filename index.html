@@ -3,141 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEAR Conference 2025</title>
+    <title>BEAR Conference 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Basic reset and typography */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            line-height: 1.6;
-            color: #333;
+        :root {
+            --bear-red: #b32d2d;
+            --bear-dark: #1a1a1a;
+            --bear-white: #f4f4f4;
+            --bear-cream: #fff9f0;
         }
 
-        /* Navigation Bar */
-        nav {
-            background: #2c3e50;
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
+        body {
             margin: 0;
             padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bear-red);
+            color: var(--bear-white);
+            line-height: 1.6;
         }
-        nav ul li {
-            margin: 0 15px;
+
+        /* --- Navigation --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: rgba(0,0,0,0.1);
         }
-        nav ul li a {
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 60px 5%;
+            min-height: 70vh;
+            position: relative;
+        }
+
+        .hero-text h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(4rem, 10vw, 8rem);
+            line-height: 0.9;
+            text-transform: uppercase;
+            margin: 0;
+            color: var(--bear-dark);
+        }
+
+        /* --- The Register Box (Right Corner) --- */
+        .register-box {
+            background-color: var(--bear-dark);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 250px;
+            height: fit-content;
+            justify-self: end;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .register-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .register-box p { margin: 0; font-size: 0.8rem; opacity: 0.7; }
+        .register-box h2 { 
+            margin: 10px 0; 
+            font-family: 'Oswald', sans-serif; 
+            font-size: 2rem;
+            line-height: 1;
+        }
+        
+        .btn-register {
+            display: inline-block;
+            margin-top: 20px;
             color: white;
             text-decoration: none;
             font-weight: bold;
+            border-bottom: 2px solid white;
         }
 
-        /* Hero Section with Video Background */
-        .hero {
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* --- Info Bubbles --- */
+        .info-bubble {
+            background: var(--bear-cream);
+            color: var(--bear-dark);
+            padding: 20px;
+            border-radius: 15px;
+            width: fit-content;
+            margin-top: 20px;
+            font-weight: bold;
+            box-shadow: 5px 5px 0px var(--bear-dark);
+        }
+
+        /* --- Footer Stats --- */
+        .stats-bar {
+            background: rgba(0,0,0,0.2);
+            padding: 40px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
             text-align: center;
-            color: white;
-            overflow: hidden;
-            position: relative;
-            background: #000;
-        }
-        .hero video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            opacity: 0.6;
-            z-index: 1;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
         }
 
-        /* Content Sections */
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 2rem;
-        }
-        section {
-            margin-bottom: 3rem;
-        }
-        h1, h2 {
-            color: #2c3e50;
+        .stat-item h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            margin: 0;
         }
 
-        /* Footer */
-        footer {
-            background: #f4f4f4;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
+        .stat-item p {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; }
+            .register-box { justify-self: start; margin-top: 40px; }
+            .hero-text h1 { font-size: 4rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#schedule">Schedule</a></li>
-            <li><a href="#speakers">Speakers</a></li>
-            <li><a href="#register">Register</a></li>
-        </ul>
+        <div class="logo">Bear Conference</div>
+        <div class="nav-links">
+            <a href="#speakers">Speakers</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#venue">Venue</a>
+        </div>
     </nav>
 
-    <div class="hero" id="home">
-        <video autoplay muted loop id="hero-video">
-            <source src="your-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="hero-content">
-            <h1>BEAR Conference 2025</h1>
-            <p>Innovating the Future Together</p>
+    <main class="hero">
+        <div class="hero-text">
+            <h1>Digital<br>Conference<br>2026</h1>
+            
+            <div class="info-bubble">
+                OCT. 21–23, 2026<br>
+                SAN FRANCISCO, CA
+            </div>
+
+            <div style="margin-top: 40px; max-width: 500px;">
+                <h3>ABOUT THE CONFERENCE</h3>
+                <p>Join us for the 2026 BEAR Conference! A gathering of thinkers, builders, and the open-source community to explore the future of software development.</p>
+            </div>
         </div>
-    </div>
 
-    <div class="container">
-        <section id="about">
-            <h2>About the Conference</h2>
-            <p>Welcome to the 2025 BEAR Conference. This academic gathering brings together researchers, industry experts, and students to discuss the latest trends in technology and innovation.</p>
-        </section>
+        <div class="register-box">
+            <p>Booking</p>
+            <h2>REGISTER<br>TICKETS</h2>
+            <a href="#" class="btn-register">GET TICKETS &rarr;</a>
+        </div>
+    </main>
 
-        <section id="schedule">
-            <h2>Schedule</h2>
-            <p>Details about the keynote sessions and breakout tracks will be posted here soon. The conference is scheduled for December 15-17, 2025.</p>
-        </section>
+    <section class="stats-bar">
+        <div class="stat-item">
+            <h3>15+</h3>
+            <p>Speakers</p>
+        </div>
+        <div class="stat-item">
+            <h3>3</h3>
+            <p>Days</p>
+        </div>
+        <div class="stat-item">
+            <h3>5</h3>
+            <p>Workshops</p>
+        </div>
+        <div class="stat-item">
+            <h3>500+</h3>
+            <p>Attendees</p>
+        </div>
+    </section>
 
-        <section id="speakers">
-            <h2>Keynote Speakers</h2>
-            <ul>
-                <li><strong>Dr. Jane Doe</strong> - University of Tech</li>
-                <li><strong>John Smith</strong> - Leading Research Lab</li>
-            </ul>
-        </section>
-
-        <section id="register">
-            <h2>Registration</h2>
-            <p>Registration opens in early 2025. Please check back for updates.</p>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 BEAR Conference Committee. Hosted on GitHub Pages.</p>
+    <footer style="padding: 20px 5%; font-size: 0.8rem; opacity: 0.6;">
+        &copy; 2026 BEAR Conference. Hosted on GitHub Pages.
     </footer>
 
 </body>
