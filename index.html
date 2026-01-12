@@ -21,6 +21,7 @@
             background-color: var(--bear-green);
             color: var(--bear-white);
             line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll from large bear */
         }
 
         /* --- Navigation --- */
@@ -31,7 +32,7 @@
             padding: 20px 5%;
             background-color: rgba(0,0,0,0.25);
             position: relative;
-            z-index: 10;
+            z-index: 30;
         }
 
         .logo {
@@ -54,36 +55,38 @@
         .hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            padding: 60px 5%;
-            min-height: 75vh;
+            padding: 60px 5% 100px 5%; /* Extra bottom padding for bear space */
+            min-height: 80vh;
             position: relative; 
             align-items: start; 
             gap: 40px;
-            /* Prevents the giant bear from creating scrollbars */
-            overflow: hidden; 
         }
 
-        /* THE BEAR */
+        /* THE BEAR - NOW LARGER AND BEHIND EVERYTHING */
         .hero::after {
             content: "";
             position: absolute;
-            bottom: -10%;
-            right: -5%; 
-            width: 45vw;
-            height: 45vw;
-            max-width: 900px;
+            bottom: -15%; /* Pulls it down into the banner area */
+            right: -10%;  /* Pulls it off the right edge slightly */
+            
+            /* Much larger dynamic size */
+            width: 60vw;
+            height: 60vw;
+            max-width: 1100px;
+            
             background-image: url('Home_rem.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: bottom right;
-            opacity: 0.80; 
-            z-index: 0;
+            
+            opacity: 0.2; 
+            z-index: 1; /* Sits behind text and banner */
             pointer-events: none;
         }
 
         .hero-text {
             position: relative;
-            z-index: 2; 
+            z-index: 10; 
         }
 
         .hero-text h1 {
@@ -116,7 +119,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.35);
             transition: transform 0.3s ease;
             position: relative;
-            z-index: 5; 
+            z-index: 10; 
         }
 
         .register-box:hover {
@@ -150,19 +153,22 @@
             margin: 15px 0;
             font-weight: bold;
             box-shadow: 5px 5px 0px var(--bear-dark);
+            position: relative;
+            z-index: 10;
         }
 
         /* --- Stats Bar --- */
         .stats-bar {
-            background: rgba(0,0,0,0.25);
+            background: rgba(0,0,0,0.3);
             padding: 40px 5%;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 20px;
             text-align: center;
             position: relative;
-            z-index: 10;
+            z-index: 20; /* Higher than the bear to overlap it */
             border-top: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px); /* Adds a cool frosted glass effect over the bear */
         }
 
         .stat-item h3 {
@@ -178,13 +184,11 @@
             letter-spacing: 1px;
         }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .hero { grid-template-columns: 1fr; }
+            .hero { grid-template-columns: 1fr; padding-bottom: 50px; }
             .register-box { justify-self: start; margin-top: 40px; }
             .hero-text h1 { font-size: 4rem; }
-            /* Adjusted mobile bear size */
-            .hero::after { width: 60vw; height: 60vw; right: -10%; bottom: 0; }
+            .hero::after { width: 80vw; height: 80vw; right: -20%; bottom: -5%; }
         }
     </style>
 </head>
