@@ -7,12 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Updated primary color to #4F6458 */
             --bear-green: #4F6458;
             --bear-dark: #2c3932;
+            --bear-brown: #3E322B; /* Darker brown for the box */
             --bear-white: #ffffff;
             --bear-cream: #f4f1ea;
-            --accent-gold: #d4a373; /* Subtle accent for contrast */
+            --accent-gold: #d4a373;
+            --retro-black: #1a1a1a;
         }
 
         body {
@@ -31,6 +32,7 @@
             align-items: center;
             padding: 25px 5%;
             background-color: rgba(0,0,0,0.15);
+            border-bottom: 4px solid var(--retro-black); /* 90s thick line */
         }
 
         .logo {
@@ -38,6 +40,7 @@
             font-size: 1.6rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            text-shadow: 2px 2px 0px var(--retro-black);
         }
 
         .nav-links a {
@@ -47,7 +50,14 @@
             font-weight: 700;
             text-transform: uppercase;
             font-size: 0.9rem;
-            letter-spacing: 1px;
+            padding: 5px 10px;
+            border: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            border: 2px solid var(--retro-black);
+            background: var(--accent-gold);
+            color: var(--retro-black);
         }
 
         /* --- Hero Section --- */
@@ -67,18 +77,23 @@
             margin: 0;
             color: var(--bear-cream);
             letter-spacing: -2px;
+            /* Retro text stroke effect */
+            -webkit-text-stroke: 2px var(--retro-black);
+            text-shadow: 6px 6px 0px var(--retro-black);
         }
 
-        /* --- The Register Box (Right Corner) --- */
+        /* --- Retro Register Box --- */
         .register-box {
-            background-color: var(--bear-dark);
+            background-color: var(--bear-brown);
             color: white;
             padding: 40px;
-            border-radius: 4px; /* Sharper edges like the GUI image */
             width: 280px;
             justify-self: end;
-            box-shadow: 15px 15px 0px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255,255,255,0.1);
+            /* THE 90s LOOK: Thick border and solid offset shadow */
+            border: 4px solid var(--retro-black);
+            box-shadow: 12px 12px 0px var(--retro-black);
+            position: relative;
+            transform: rotate(1deg); /* Slight tilt for cartoon feel */
         }
 
         .register-box p { 
@@ -86,7 +101,8 @@
             font-size: 0.75rem; 
             text-transform: uppercase; 
             letter-spacing: 2px;
-            opacity: 0.8; 
+            font-weight: bold;
+            color: var(--accent-gold);
         }
 
         .register-box h2 { 
@@ -99,24 +115,36 @@
         .btn-register {
             display: inline-block;
             margin-top: 25px;
-            color: var(--accent-gold);
+            background: var(--accent-gold);
+            color: var(--retro-black);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 900;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: 3px solid var(--retro-black);
+            box-shadow: 4px 4px 0px var(--retro-black);
         }
 
-        /* --- Info Bubbles --- */
+        .btn-register:hover {
+            background: white;
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--retro-black);
+        }
+
+        /* --- Info Bubble / Sticker --- */
         .info-bubble {
             background: var(--bear-cream);
-            color: var(--bear-dark);
-            padding: 20px 30px;
-            border-radius: 50px; /* Pill shape from the 2025 inspiration */
+            color: var(--retro-black);
+            padding: 15px 30px;
+            border: 3px solid var(--retro-black);
+            border-radius: 12px;
             width: fit-content;
-            margin-top: 30px;
+            margin-top: 40px;
             font-weight: 800;
             font-family: 'Oswald', sans-serif;
             text-transform: uppercase;
+            box-shadow: 6px 6px 0px var(--retro-black);
         }
 
         /* --- About Section --- */
@@ -128,20 +156,28 @@
         .about-section h3 {
             font-family: 'Oswald', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 2px solid var(--accent-gold);
+            background: var(--retro-black);
+            color: var(--accent-gold);
+            padding: 5px 15px;
             display: inline-block;
             margin-bottom: 15px;
         }
 
-        /* --- Footer Stats --- */
+        /* --- Footer Stats (The 90s Grid) --- */
         .stats-bar {
             background: var(--bear-dark);
             padding: 50px 5%;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 30px;
-            text-align: center;
+            gap: 0px; /* Merged grid look */
+            border-top: 4px solid var(--retro-black);
+            border-bottom: 4px solid var(--retro-black);
+        }
+
+        .stat-item {
+            padding: 30px;
+            border: 2px solid var(--retro-black);
+            background: rgba(255,255,255,0.05);
         }
 
         .stat-item h3 {
@@ -149,21 +185,14 @@
             font-size: 3rem;
             margin: 0;
             color: var(--accent-gold);
-        }
-
-        .stat-item p {
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-top: 5px;
+            -webkit-text-stroke: 1px var(--retro-black);
         }
 
         /* Responsive Adjustments */
         @media (max-width: 900px) {
             .hero { grid-template-columns: 1fr; }
-            .register-box { justify-self: start; margin-top: 50px; width: 80%; }
-            .hero-text h1 { font-size: 5rem; }
+            .register-box { justify-self: start; margin-top: 50px; width: 85%; transform: rotate(0); }
+            .hero-text h1 { font-size: 4rem; }
         }
     </style>
 </head>
@@ -189,15 +218,15 @@
             </div>
 
             <div class="register-box">
-                <p>Available Now</p>
+                <p>Limited Space</p>
                 <h2>REGISTER<br>TICKETS</h2>
-                <a href="#" class="btn-register">Join the Waitlist &rarr;</a>
+                <a href="#" class="btn-register">Get Tickets &rarr;</a>
             </div>
         </div>
 
         <section class="about-section">
             <h3>About the Event</h3>
-            <p>Following the success of 2025, the BEAR Conference returns. We gather the world's leading engineers and designers to discuss the future of digital architecture, open-source sustainability, and the evolution of the web.</p>
+            <p>Gathering the world's leading engineers and designers to discuss the future of digital architecture, open-source sustainability, and the evolution of the web.</p>
         </section>
     </main>
 
@@ -220,8 +249,8 @@
         </div>
     </section>
 
-    <footer style="padding: 40px 5%; background: #232d28; font-size: 0.8rem; text-align: center;">
-        <p>&copy; 2026 BEAR Conference. All rights reserved. | Built for GitHub Pages</p>
+    <footer style="padding: 40px 5%; background: var(--retro-black); color: var(--bear-cream); font-size: 0.8rem; text-align: center;">
+        <p>&copy; 2026 BEAR Conference. All rights reserved. | <a href="#" style="color:var(--accent-gold)">Privacy Policy</a></p>
     </footer>
 
 </body>
