@@ -7,13 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
+            /* Updated primary color to #4F6458 */
             --bear-green: #4F6458;
-            --bear-dark-green: #2C3932;
-            --bear-umber: #3E322B; /* Darker brown for the register box */
-            --bear-umber-dark: #2A221D; /* For the borders */
+            --bear-dark: #2c3932;
             --bear-white: #ffffff;
             --bear-cream: #f4f1ea;
-            --accent-gold: #d4a373;
+            --accent-gold: #d4a373; /* Subtle accent for contrast */
         }
 
         body {
@@ -23,7 +22,6 @@
             background-color: var(--bear-green);
             color: var(--bear-white);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         /* --- Navigation --- */
@@ -32,7 +30,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 25px 5%;
-            background-color: rgba(0,0,0,0.2);
+            background-color: rgba(0,0,0,0.15);
         }
 
         .logo {
@@ -49,16 +47,16 @@
             font-weight: 700;
             text-transform: uppercase;
             font-size: 0.9rem;
+            letter-spacing: 1px;
         }
 
         /* --- Hero Section --- */
         .hero {
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
-            padding: 60px 5%;
-            min-height: 65vh;
+            padding: 80px 5%;
+            min-height: 60vh;
             align-items: start;
-            position: relative;
         }
 
         .hero-text h1 {
@@ -71,125 +69,101 @@
             letter-spacing: -2px;
         }
 
-        /* --- Updated Darker Register Box --- */
+        /* --- The Register Box (Right Corner) --- */
         .register-box {
-            background-color: var(--bear-brown, #3E322B);
+            background-color: var(--bear-dark);
             color: white;
             padding: 40px;
+            border-radius: 4px; /* Sharper edges like the GUI image */
             width: 280px;
             justify-self: end;
-            /* Added prominent top and bottom borders */
-            border-top: 8px solid var(--bear-umber-dark);
-            border-bottom: 8px solid var(--bear-umber-dark);
-            border-left: 1px solid rgba(255,255,255,0.05);
-            border-right: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 20px 20px 40px rgba(0,0,0,0.3);
-            position: relative;
+            box-shadow: 15px 15px 0px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .register-box p { 
             margin: 0; 
-            font-size: 0.7rem; 
+            font-size: 0.75rem; 
             text-transform: uppercase; 
-            letter-spacing: 3px;
-            color: var(--accent-gold);
+            letter-spacing: 2px;
+            opacity: 0.8; 
         }
 
         .register-box h2 { 
             margin: 15px 0; 
             font-family: 'Oswald', sans-serif; 
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             line-height: 1;
-            letter-spacing: 1px;
         }
         
         .btn-register {
             display: inline-block;
-            margin-top: 20px;
-            color: white;
+            margin-top: 25px;
+            color: var(--accent-gold);
             text-decoration: none;
             font-weight: bold;
             text-transform: uppercase;
-            border-bottom: 2px solid var(--accent-gold);
-            padding-bottom: 5px;
-            transition: 0.3s;
-        }
-
-        .btn-register:hover {
-            color: var(--accent-gold);
+            font-size: 0.9rem;
         }
 
         /* --- Info Bubbles --- */
         .info-bubble {
             background: var(--bear-cream);
-            color: var(--bear-dark-green);
-            padding: 15px 30px;
-            border-radius: 50px;
+            color: var(--bear-dark);
+            padding: 20px 30px;
+            border-radius: 50px; /* Pill shape from the 2025 inspiration */
             width: fit-content;
             margin-top: 30px;
             font-weight: 800;
             font-family: 'Oswald', sans-serif;
-            box-shadow: 4px 4px 0px var(--bear-umber-dark);
-        }
-
-        /* --- Bear Sticker Overlay Area --- */
-        .sticker-zone {
-            position: relative;
-            padding: 80px 5%;
-            display: flex;
-            justify-content: flex-end; /* Aligns to right */
-        }
-
-        .bear-sticker-container {
-            position: relative;
-            width: 350px;
-        }
-
-        .bear-img {
-            width: 100%;
-            height: auto;
-            filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.2));
-        }
-
-        .overlay-content {
-            position: absolute;
-            top: 45%; /* Adjust this based on your bear's stomach/sign */
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            width: 80%;
-            pointer-events: none;
-        }
-
-        .overlay-content h4 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
-            margin: 0;
-            color: var(--bear-umber-dark);
             text-transform: uppercase;
         }
 
-        /* --- Stats Bar --- */
+        /* --- About Section --- */
+        .about-section {
+            padding: 40px 5% 80px;
+            max-width: 600px;
+        }
+
+        .about-section h3 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--accent-gold);
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        /* --- Footer Stats --- */
         .stats-bar {
-            background: var(--bear-dark-green);
-            padding: 60px 5%;
+            background: var(--bear-dark);
+            padding: 50px 5%;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
             text-align: center;
         }
 
         .stat-item h3 {
             font-family: 'Oswald', sans-serif;
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin: 0;
             color: var(--accent-gold);
         }
 
+        .stat-item p {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* Responsive Adjustments */
         @media (max-width: 900px) {
             .hero { grid-template-columns: 1fr; }
-            .register-box { justify-self: start; width: 100%; box-sizing: border-box; }
-            .sticker-zone { justify-content: center; }
+            .register-box { justify-self: start; margin-top: 50px; width: 80%; }
+            .hero-text h1 { font-size: 5rem; }
         }
     </style>
 </head>
@@ -208,48 +182,46 @@
         <div class="hero">
             <div class="hero-text">
                 <h1>Digital<br>Conference<br>2026</h1>
+                
                 <div class="info-bubble">
                     Oct. 21–23 // San Francisco
-                </div>
-                <div style="margin-top: 40px; max-width: 500px; opacity: 0.9;">
-                    <p>Building the future of the open web, one paw-print at a time. Join us for three days of deep-dive workshops and keynote sessions.</p>
                 </div>
             </div>
 
             <div class="register-box">
-                <p>Booking Open</p>
+                <p>Available Now</p>
                 <h2>REGISTER<br>TICKETS</h2>
-                <a href="#" class="btn-register">Get Your Pass &rarr;</a>
+                <a href="#" class="btn-register">Join the Waitlist &rarr;</a>
             </div>
         </div>
 
-        <section class="sticker-zone">
-            <div class="bear-sticker-container">
-                <img src="bear-icon.png" alt="Mascot" class="bear-img">
-                <div class="overlay-content">
-                    <h4>BEAR<br>2026</h4>
-                </div>
-            </div>
+        <section class="about-section">
+            <h3>About the Event</h3>
+            <p>Following the success of 2025, the BEAR Conference returns. We gather the world's leading engineers and designers to discuss the future of digital architecture, open-source sustainability, and the evolution of the web.</p>
         </section>
     </main>
 
     <section class="stats-bar">
         <div class="stat-item">
             <h3>20+</h3>
-            <p>Experts</p>
+            <p>Keynote Speakers</p>
         </div>
         <div class="stat-item">
             <h3>3</h3>
-            <p>Days</p>
+            <p>Full Days</p>
         </div>
         <div class="stat-item">
             <h3>12</h3>
-            <p>Workshops</p>
+            <p>Technical Workshops</p>
+        </div>
+        <div class="stat-item">
+            <h3>1k+</h3>
+            <p>Global Attendees</p>
         </div>
     </section>
 
-    <footer style="padding: 40px 5%; background: #1a231f; font-size: 0.8rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
-        <p>&copy; 2026 BEAR Conference. All rights reserved.</p>
+    <footer style="padding: 40px 5%; background: #232d28; font-size: 0.8rem; text-align: center;">
+        <p>&copy; 2026 BEAR Conference. All rights reserved. | Built for GitHub Pages</p>
     </footer>
 
 </body>
