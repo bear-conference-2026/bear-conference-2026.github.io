@@ -12,7 +12,8 @@
             --bear-white: #ffffff;
             --bear-cream: #f4f1ea;
             --accent-gold: #d4a373;
-            --about-bg: #3d4d44; /* Slightly darker green for the blurb box */
+            /* Semi-transparent dark green */
+            --about-bg: rgba(44, 57, 50, 0.7); 
         }
 
         body {
@@ -106,15 +107,17 @@
             font-weight: 400;
         }
 
-        /* --- About Blurb Box --- */
+        /* --- NEW: Transparent About Box --- */
         .about-box {
             margin-top: 25px;
             max-width: 550px;
             background-color: var(--about-bg);
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
             border-left: 4px solid var(--accent-gold);
+            backdrop-filter: blur(8px); /* Blurs the bear/background behind the box */
+            -webkit-backdrop-filter: blur(8px);
         }
 
         /* --- The Register Box --- */
@@ -183,6 +186,7 @@
             background-color: var(--bear-green);
             position: relative;
             z-index: 30;
+            clear: both;
         }
 
         @media (max-width: 768px) {
@@ -221,8 +225,8 @@
             </div>
 
             <div class="about-box">
-                <h3 style="font-family: 'Oswald'; border-bottom: 2px solid var(--accent-gold); display: inline-block; margin-bottom: 8px; margin-top: 0; letter-spacing: 1px;">ABOUT THE CONFERENCE</h3>
-                <p style="margin: 5px 0 0 0;">Join us for the 15th Annual BEAR PGR Conference! A postgraduate-led conference exploring cutting-edge research enabled by the Birmingham Environment for Academic Research (BEAR). Sponsored by Lenovo, the event also features exciting give-away prizes!</p>
+                <h3 style="font-family: 'Oswald'; border-bottom: 2px solid var(--accent-gold); display: inline-block; margin-bottom: 12px; margin-top: 0; letter-spacing: 1px;">ABOUT THE CONFERENCE</h3>
+                <p style="margin: 0;">Join us for the 15th Annual BEAR PGR Conference! A postgraduate-led conference exploring cutting-edge research enabled by the Birmingham Environment for Academic Research (BEAR). Sponsored by Lenovo, the event also features exciting give-away prizes!</p>
             </div>
         </div>
 
