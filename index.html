@@ -12,6 +12,7 @@
             --bear-white: #ffffff;
             --bear-cream: #f4f1ea;
             --accent-gold: #d4a373;
+            --reg-purple: #190D21;
         }
 
         body {
@@ -21,6 +22,7 @@
             background-color: var(--bear-green);
             color: var(--bear-white);
             line-height: 1.6;
+            overflow-x: hidden; /* Prevents icon from causing scrollbars */
         }
 
         /* --- Navigation --- */
@@ -30,6 +32,8 @@
             align-items: center;
             padding: 20px 5%;
             background-color: rgba(0,0,0,0.25);
+            position: relative;
+            z-index: 10;
         }
 
         .logo {
@@ -49,15 +53,36 @@
         }
 
         /* --- Hero Section --- */
-
         .hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
             padding: 60px 5%;
-            min-height: 70vh;
+            min-height: 80vh;
+            position: relative; /* Essential for the background icon */
+            align-items: start; /* Keeps Register box at the top */
+            gap: 40px;
+        }
+
+        /* THE BACKGROUND ICON */
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            right: -50px;
+            width: 500px;
+            height: 500px;
+            /* Replace the URL below with your actual icon/logo file */
+            background-image: url('https://cdn-icons-png.flaticon.com/512/2311/2311311.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.1; /* Makes it subtle so text is readable */
+            z-index: 0;
+            pointer-events: none; /* Allows you to click 'through' the icon */
+        }
+
+        .hero-text {
             position: relative;
-            align-items: start; 
-            gap: 40px;          
+            z-index: 2; /* Keeps text above icon */
         }
 
         .hero-text h1 {
@@ -69,20 +94,31 @@
             color: var(--bear-cream);
         }
 
-        /* --- The Register Box (Right Corner) --- */
+        /* Styling the lowercase x */
+        .multiplier {
+            text-transform: lowercase;
+            font-size: 0.5em;
+            margin: 0 10px;
+            vertical-align: middle;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+        }
+
+        /* --- The Register Box --- */
         .register-box {
-            background-color: #190D21;
+            background-color: var(--reg-purple);
             color: white;
             padding: 30px;
             border-radius: 12px;
             width: 250px;
-            height: fit-content;  
-            justify-self: end;    
-            margin-top: 20px;     
+            height: fit-content;
+            justify-self: end;
             box-shadow: 0 10px 30px rgba(0,0,0,0.35);
             transition: transform 0.3s ease;
-            z-index: 10;          
+            position: relative;
+            z-index: 5; /* Keeps box above icon */
         }
+
         .register-box:hover {
             transform: translateY(-5px);
         }
@@ -115,22 +151,8 @@
             font-weight: bold;
             box-shadow: 5px 5px 0px var(--bear-dark);
         }
-        /* --- About Section --- */
-        .about-section {
-            padding: 40px 5% 80px;
-            max-width: 600px;
-        }
 
-        .about-section h3 {
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 2px solid var(--accent-gold);
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-        
-        /* --- Footer Stats --- */
+        /* --- Stats Bar --- */
         .stats-bar {
             background: rgba(0,0,0,0.2);
             padding: 40px 5%;
@@ -138,6 +160,8 @@
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 20px;
             text-align: center;
+            position: relative;
+            z-index: 10;
         }
 
         .stat-item h3 {
@@ -158,17 +182,8 @@
             .hero { grid-template-columns: 1fr; }
             .register-box { justify-self: start; margin-top: 40px; }
             .hero-text h1 { font-size: 4rem; }
+            .hero::after { width: 300px; height: 300px; right: -20px; bottom: 0; }
         }
-
-/* Styling the lowercase x specifically */
-.multiplier {
-    text-transform: lowercase;
-    font-size: 0.6em; /* Slightly smaller than the main text */
-    margin: 0 15px;  /* Adds breathing room around the x */
-    font-family: 'Inter', sans-serif; /* Cleaner font for the x */
-    vertical-align: middle;
-}
-        
     </style>
 </head>
 <body>
@@ -186,8 +201,7 @@
 
     <main class="hero">
         <div class="hero-text">
-            <div class="hero-text">
-            <h1>AI<span class="multiplier">x</span>INTEGRITY<br>Conference<br>2026</h1>
+            <h1>AI <span class="multiplier">x</span> INTEGRITY<br>Conference<br>2026</h1>
             
             <div class="info-bubble">
                 APRIL.29, 2026<br>
@@ -195,8 +209,8 @@
             </div>
 
             <div style="margin-top: 40px; max-width: 500px;">
-                <h3>ABOUT THE CONFERENCE</h3>
-                <p>Join us for the 15th Annual BEAR PGR Conference! A postgraduate-led conference exploring cutting-edge research enabled by the Birmingham Environment for Academic Research (BEAR), UoB’s advanced research computing environment. This annual event provides a platform to showcase innovative research, share experiences, and explore the future of Artifical Intelligence, high-performance computing, and interdisciplinary collaboration. Sponsored by Lenovo, the event also features exciting give-away prizes! </p>
+                <h3 style="font-family: 'Oswald'; border-bottom: 2px solid var(--accent-gold); display: inline-block;">ABOUT THE CONFERENCE</h3>
+                <p>Join us for the 15th Annual BEAR PGR Conference! A postgraduate-led conference exploring cutting-edge research enabled by the Birmingham Environment for Academic Research (BEAR), UoB’s advanced research computing environment. Sponsored by Lenovo, the event also features exciting give-away prizes!</p>
             </div>
         </div>
 
@@ -210,18 +224,18 @@
     <section class="stats-bar">
         <div class="stat-item">
             <h3>15+</h3>
-            <p>Presentations</p>
+            <p>Speakers</p>
         </div>
         <div class="stat-item">
-            <h3>15+</h3>
-            <p>Posters</p>
+            <h3>3</h3>
+            <p>Days</p>
         </div>
         <div class="stat-item">
-            <h3>2</h3>
-            <p>Keynote Speakers</p>
+            <h3>5</h3>
+            <p>Workshops</p>
         </div>
         <div class="stat-item">
-            <h3>20+</h3>
+            <h3>500+</h3>
             <p>Attendees</p>
         </div>
     </section>
