@@ -62,7 +62,7 @@
             font-size: 0.9rem;  
         }  
 
-        /* --- Header Section (Bear Restored) --- */  
+        /* --- Header Section --- */  
         .about-header {  
             position: relative;  
             padding: 120px 5% 100px 5%;  
@@ -98,20 +98,28 @@
             margin: 0;  
             color: var(--bear-cream);  
             text-transform: uppercase;  
-            line-height: 0.9;  
+            line-height: 0.9;
+            /* Added deep multi-layered shadow for pop */
+            text-shadow: 3px 6px 15px rgba(0, 0, 0, 0.6), 
+                         0px 0px 30px rgba(0, 0, 0, 0.2);
         }  
 
         .subheading {  
-            font-size: clamp(1rem, 2vw, 1.3rem);  
-            margin-top: 15px;  
-            opacity: 0.9;  
-            letter-spacing: 1px;  
-            max-width: 800px;  
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.25rem);  
+            margin-top: 20px;  
+            opacity: 0.95;  
+            letter-spacing: 0.5px;  
+            max-width: 750px;  
             margin-left: auto;  
-            margin-right: auto;  
+            margin-right: auto;
+            /* requested changes: light weight, closer line spacing, subtle shadow */
+            font-weight: 300;
+            line-height: 1.35;
+            text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
         }  
 
-        /* --- Horizontal Banner (Gold on Top) --- */  
+        /* --- Horizontal Banner --- */  
         .details-banner {  
             background-color: var(--glass-bg);  
             padding: 50px 5%;  
@@ -171,7 +179,7 @@
             margin-top: 0;  
         }  
 
-        /* --- Map Section Styling --- */  
+        /* --- Map Section --- */  
         .map-section {  
             grid-column: 1 / -1;  
             margin-top: 40px;  
@@ -293,7 +301,7 @@
             <p>Also, stand a chance to compete for "Best Talk" and "Best Poster" awards, generously sponsored by Lenovo.</p>  
         </section>  
 
-<div class="map-section">  
+        <div class="map-section">  
             <h2>Where to find us</h2>  
             <div class="map-container">  
                 <iframe 
