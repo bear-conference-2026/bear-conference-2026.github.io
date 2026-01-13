@@ -62,13 +62,13 @@
             font-size: 0.9rem;  
         }  
 
-        /* --- Header Section --- */  
+        /* --- Updated Header Section --- */  
         .about-header {  
             position: relative;  
-            padding: 120px 5% 100px 5%;  
-            text-align: center;  
+            padding: 120px 8% 100px 8%; /* Increased side padding */  
+            text-align: left; /* Shifted text to the left */  
             overflow: hidden;  
-            min-height: 35vh;  
+            min-height: 40vh;  
             display: flex;  
             flex-direction: column;  
             justify-content: center;  
@@ -79,18 +79,22 @@
             content: "";  
             position: absolute;  
             top: 0;  
-            right: 0;  
+            right: 0; /* Keeps image pinned to the right */  
             width: 100%;  
             height: 100%;  
             background-image: url('About_rem.png');   
             background-size: contain;  
             background-repeat: no-repeat;  
-            background-position: center right;  
+            background-position: right center; /* Shifted image to the right */  
             opacity: 0.70;   
             z-index: 0;  
         }  
 
-        .header-content { position: relative; z-index: 10; }  
+        .header-content { 
+            position: relative; 
+            z-index: 10; 
+            max-width: 700px; /* Prevents text from stretching over the image */
+        }  
 
         .about-header h1 {  
             font-family: 'Oswald', sans-serif;  
@@ -99,7 +103,6 @@
             color: var(--bear-cream);  
             text-transform: uppercase;  
             line-height: 0.9;
-            /* Added deep multi-layered shadow for pop */
             text-shadow: 3px 6px 15px rgba(0, 0, 0, 0.6), 
                          0px 0px 30px rgba(0, 0, 0, 0.2);
         }  
@@ -108,12 +111,9 @@
             font-family: 'Inter', sans-serif;
             font-size: clamp(1rem, 2vw, 1.25rem);  
             margin-top: 20px;  
+            margin-left: 0; /* Aligns with the left-justified title */
             opacity: 0.95;  
             letter-spacing: 0.5px;  
-            max-width: 750px;  
-            margin-left: auto;  
-            margin-right: auto;
-            /* requested changes: light weight, closer line spacing, subtle shadow */
             font-weight: 300;
             line-height: 1.35;
             text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
@@ -241,6 +241,9 @@
         }  
 
         @media (max-width: 768px) {  
+            .about-header { text-align: center; padding: 100px 5%; }
+            .about-header::after { opacity: 0.3; background-position: center; }
+            .header-content { max-width: 100%; }
             .content-section { grid-template-columns: 1fr; }  
             .details-banner { grid-template-columns: 1fr 1fr; }  
         }  
