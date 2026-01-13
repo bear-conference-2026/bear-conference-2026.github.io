@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>About | BEAR Conference 2026</title>  
 
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">  
+    
     <style>  
         :root {  
             --bear-green: #4F6458;  
@@ -61,17 +62,32 @@
             font-size: 0.9rem;  
         }  
 
-        /* --- Header Section --- */  
+        /* --- Header Section (Bear Restored) --- */  
         .about-header {  
             position: relative;  
             padding: 120px 5% 100px 5%;  
             text-align: center;  
             overflow: hidden;  
-            min-height: 30vh;  
+            min-height: 35vh;  
             display: flex;  
             flex-direction: column;  
             justify-content: center;  
             background: linear-gradient(rgba(79, 100, 88, 0.7), rgba(79, 100, 88, 1));  
+        }  
+
+        .about-header::after {  
+            content: "";  
+            position: absolute;  
+            top: 0;  
+            right: 0;  
+            width: 100%;  
+            height: 100%;  
+            background-image: url('About_rem.png');   
+            background-size: contain;  
+            background-repeat: no-repeat;  
+            background-position: center right;  
+            opacity: 0.80;   
+            z-index: 0;  
         }  
 
         .header-content { position: relative; z-index: 10; }  
@@ -90,12 +106,15 @@
             margin-top: 15px;  
             opacity: 0.9;  
             letter-spacing: 1px;  
+            max-width: 800px;  
+            margin-left: auto;  
+            margin-right: auto;  
         }  
 
-        /* --- Updated Horizontal Banner --- */  
+        /* --- Horizontal Banner (Swapped Design) --- */  
         .details-banner {  
             background-color: var(--glass-bg);  
-            padding: 40px 5%;  
+            padding: 50px 5%;  
             display: grid;  
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));  
             gap: 20px;  
@@ -106,24 +125,23 @@
             border-bottom: 1px solid rgba(255,255,255,0.1);  
             backdrop-filter: blur(15px);  
             -webkit-backdrop-filter: blur(15px);  
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);  
         }  
 
         .detail-item h4 {   
             font-family: 'Oswald', sans-serif;   
-            font-size: 1.4rem; /* Swapped size: larger on top */  
+            font-size: 1.5rem;   
             margin: 0 0 5px 0;   
-            color: var(--accent-gold); /* Gold color on top */  
+            color: var(--accent-gold);   
             text-transform: uppercase;  
             letter-spacing: 1px;  
             font-weight: 700;  
         }  
 
         .detail-item p {   
-            font-size: 0.85rem; /* Swapped size: smaller on bottom */  
+            font-size: 0.9rem;   
             margin: 0;  
-            font-weight: 400; /* Narrower/Lighter font */  
-            color: rgba(255, 255, 255, 0.8); /* Light white */  
+            font-weight: 300;   
+            color: rgba(255, 255, 255, 0.9);   
             text-transform: uppercase;  
             letter-spacing: 2px;  
         }  
@@ -144,7 +162,6 @@
             border-radius: 15px;  
             backdrop-filter: blur(10px);  
             border-left: 4px solid var(--accent-gold);  
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);  
         }  
 
         .glass-card h2 {  
@@ -152,9 +169,34 @@
             color: var(--accent-gold);  
             text-transform: uppercase;  
             margin-top: 0;  
-            letter-spacing: 1px;  
         }  
 
+        /* --- Map Section Styling --- */  
+        .map-section {  
+            grid-column: 1 / -1;  
+            margin-top: 40px;  
+            text-align: center;  
+        }  
+
+        .map-section h2 {  
+            font-family: 'Oswald', sans-serif;  
+            color: var(--accent-gold);  
+            text-transform: uppercase;  
+            letter-spacing: 2px;  
+            margin-bottom: 25px;  
+        }  
+
+        .map-container {  
+            width: 100%;  
+            height: 450px;  
+            border-radius: 15px;  
+            overflow: hidden;  
+            filter: grayscale(0.3) contrast(1.1);  
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);  
+            border: 1px solid rgba(255,255,255,0.1);  
+        }  
+
+        /* --- Partners Section --- */  
         .partners-section {  
             padding: 80px 5%;  
             text-align: center;  
@@ -165,7 +207,6 @@
             font-family: 'Oswald', sans-serif;  
             text-transform: uppercase;  
             letter-spacing: 3px;  
-            margin-bottom: 50px;  
             color: var(--accent-gold);  
         }  
 
@@ -181,16 +222,6 @@
             height: 50px;  
             filter: grayscale(1) brightness(2);  
             opacity: 0.7;  
-            transition: 0.3s ease;  
-        }  
-
-        .map-container {  
-            width: 100%;  
-            height: 400px;  
-            margin-top: 20px;  
-            border-radius: 15px;  
-            overflow: hidden;  
-            filter: grayscale(0.5);  
         }  
 
         footer {  
@@ -223,7 +254,10 @@
     <header class="about-header">  
         <div class="header-content">  
             <h1>About the Conference</h1>  
-            <p class="subheading">15th Annual BEAR PGR Conference: Bridging Research, Innovation, and Computing.</p>  
+            <p class="subheading">
+                15th Annual BEAR PGR Conference: Bridging Research, Innovation, and Computing. 
+                Discover how BEAR resources are driving innovative AI research focused on ethics and integrity.
+            </p>  
         </div>  
     </header>  
 
@@ -250,14 +284,29 @@
         <section class="glass-card">  
             <h2>Our Mission</h2>  
             <p>The BEAR (Birmingham Environment for Academic Research) Conference is a premier event for postgraduate researchers to showcase work enabled by High Performance Computing.</p>  
-            <p>This year, under the theme <strong>"AI x Integrity,"</strong> we explore the ethical boundaries and technical possibilities of artificial intelligence.</p>  
+            <p>This year, under the theme <strong>"AI x Integrity,"</strong> we explore the ethical boundaries and technical possibilities of artificial intelligence in modern research.</p>  
         </section>  
 
         <section class="glass-card">  
             <h2>Why Attend?</h2>  
-            <p>This conference provides a unique platform for researchers to present results, learn about innovative techniques, and network with peers who use BlueBEAR and HPC.</p>  
+            <p>This conference provides a unique platform for researchers to present their results, learn about innovative techniques across various fields, and network with peers who use BlueBEAR and HPC approaches.</p>  
             <p>Also, stand a chance to compete for "Best Talk" and "Best Poster" awards, generously sponsored by Lenovo.</p>  
         </section>  
+
+        <div class="map-section">  
+            <h2>Where to find us</h2>  
+            <div class="map-container">  
+                <iframe   
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d2431.144426615745!2d-1.9332560233215563!3d52.45021277204423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bc0928956973%3A0x6960d75076632c!2sUniversity%20of%20Birmingham!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk"   
+                    width="100%"   
+                    height="100%"   
+                    style="border:0;"   
+                    allowfullscreen=""   
+                    loading="lazy"   
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>  
+            </div>  
+        </div>  
     </main>  
 
     <section class="partners-section">  
