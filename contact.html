@@ -129,16 +129,22 @@
         }  
 
         /* --- Email Card Styling --- */
-        .email-card {
-            background-color: var(--glass-bg);
-            padding: 50px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border-left: 4px solid var(--accent-gold);
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
+.email-card {
+    background-color: var(--glass-bg);
+    padding: 50px;
+    border-radius: 15px;
+    autofocus: blur(10px);
+    border-left: 4px solid var(--accent-gold);
+    text-align: center;
+    
+    /* Pulls the box up to align with the header background */
+    margin-top: -100px; 
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 20; /* Ensures it stays above the header background */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+        
         .email-card h2 {
             font-family: 'Oswald', sans-serif;
             color: var(--accent-gold);
