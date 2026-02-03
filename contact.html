@@ -82,7 +82,7 @@
             right: 0;  
             width: 100%;  
             height: 100%;  
-            background-image: url('contact_rem.png');   
+            background-image: url('contact_rem.png');  
             background-size: contain;  
             background-repeat: no-repeat;  
             background-position: right center;  
@@ -103,18 +103,14 @@
             color: var(--bear-cream);  
             text-transform: uppercase;  
             line-height: 0.9;
-            text-shadow: 3px 6px 15px rgba(0, 0, 0, 0.6), 
-                         0px 0px 30px rgba(0, 0, 0, 0.2);
+            text-shadow: 3px 6px 15px rgba(0, 0, 0, 0.6);
         }  
 
         .subheading {  
-            font-family: 'Inter', sans-serif;
             font-size: clamp(1rem, 2vw, 1.25rem);  
             margin-top: 20px;  
             opacity: 0.95;  
             font-weight: 300;
-            line-height: 1.35;
-            text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
         }  
 
         /* --- Email Banner --- */  
@@ -129,13 +125,11 @@
             border-top: 1px solid rgba(255,255,255,0.1);  
             border-bottom: 1px solid rgba(255,255,255,0.1);  
             backdrop-filter: blur(15px);  
-            -webkit-backdrop-filter: blur(15px);  
         }  
 
         .email-banner p {   
             font-size: 0.8rem;   
             margin: 0 0 10px 0;  
-            font-weight: 400;   
             color: rgba(255, 255, 255, 0.7);  
             text-transform: uppercase;  
             letter-spacing: 2px;  
@@ -148,12 +142,6 @@
             text-decoration: none;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-
-        .contact-link:hover {
-            color: var(--bear-white);
         }
 
         /* --- Committee Grid Section --- */  
@@ -163,11 +151,9 @@
             margin: 0 auto;  
         }  
 
-        /* NEW: Styles "Meet the Team" exactly like "Email us at:" */
         .committee-section p {
             font-size: 0.8rem;   
             margin: 0 0 10px 0;  
-            font-weight: 400;   
             color: rgba(255, 255, 255, 0.7);  
             text-transform: uppercase;  
             letter-spacing: 2px;
@@ -181,7 +167,7 @@
             text-align: center;
             margin-bottom: 50px;
             color: var(--accent-gold);
-            margin-top: 0; /* Ensures it sits close to the label above it */
+            margin-top: 0;
         }
 
         .team-grid {
@@ -190,24 +176,17 @@
             gap: 30px;
         }
 
-         .team-member {
+        .team-member {
             background-color: var(--glass-bg);
             padding: 40px;
             border-radius: 15px;
             backdrop-filter: blur(10px);
-            /* Centering properties */
             text-align: center; 
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            /* Border moved to bottom for better symmetry with centered text */
             border-bottom: 4px solid var(--accent-gold); 
             transition: transform 0.3s ease;
-        }
-
-        .team-member:hover {
-            transform: translateY(-5px);
         }
 
         .team-name {
@@ -218,11 +197,12 @@
             text-transform: uppercase;
         }
 
-        .team-role {
+        /* UPDATED ROLE STYLE */
+        .team-member .team-role {
             font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--accent-gold);
+            font-size: 0.95rem;
+            font-weight: 700; /* Bolder weight makes color clearer */
+            color: var(--accent-gold) !important; /* Force the gold variable */
             letter-spacing: 1px;
             text-transform: uppercase;
             margin: 0;
@@ -232,23 +212,15 @@
             font-size: 0.85rem;
             margin-top: 15px;
             opacity: 0.6;
-            /* Ensures the italic text stays centered */
             width: 100%; 
         }
 
-        /* --- Footer --- */
         footer {  
             padding: 40px 5%;  
             background-color: var(--bear-dark);  
             text-align: center;  
             font-size: 0.8rem;  
             opacity: 0.7;  
-        }  
-
-        @media (max-width: 768px) {  
-            .contact-header { text-align: center; padding: 100px 5%; }
-            .contact-header::after { opacity: 0.3; background-position: center; }
-            .header-content { max-width: 100%; }
         }  
     </style>  
 </head>  
@@ -260,7 +232,7 @@
             <a href="about.html">About</a>  
             <a href="index.html#schedule">Schedule</a>  
             <a href="index.html#keynotes">Keynote</a>  
-            <a href="index.html#register">Register</a>  
+            <a href="https://forms.office.com/your-url-here" target="_blank">Register</a>  
             <a href="contact.html">Contact</a>  
         </div>  
     </nav>  
@@ -291,43 +263,36 @@
                     <p class="team-role">Committee Chair</p>
                     <p class="team-dept">School of Electrical & Computer Engineering</p>
                 </div>
-
                 <div class="team-member">
                     <h3 class="team-name">Aimee Crisp</h3>
                     <p class="team-role">Committee Chair</p>
                     <p class="team-dept">School of Psychology</p>
                 </div>
-
                 <div class="team-member">
                     <h3 class="team-name">Yaru Zhou</h3>
                     <p class="team-role">Conference Secretary</p>
                     <p class="team-dept">School of Computer Science</p>
                 </div>
-
                 <div class="team-member">
                     <h3 class="team-name">Kyra Scott</h3>
                     <p class="team-role">Website & Advertising Lead</p>
-                    <p class="school-dept">School of Psychology</p>
+                    <p class="team-dept">School of Psychology</p>
                 </div>
-
                 <div class="team-member">
                     <h3 class="team-name">Arjun Shergill</h3>
                     <p class="team-role">Social Media Lead</p>
                     <p class="team-dept">School of Metallurgy & Materials</p>
                 </div>
-
                 <div class="team-member">
                     <h3 class="team-name">Yurkesh Karki</h3>
                     <p class="team-role">Conference Treasurer</p>
                     <p class="team-dept">School of Metallurgy & Materials</p>
                 </div>
-
                  <div class="team-member">
                     <h3 class="team-name">Aslam Ghumra</h3>
                     <p class="team-role">Conference Organising Committee</p>
                     <p class="team-dept">IT Services & Advanced Research Computing</p>
                 </div>
-
                  <div class="team-member">
                     <h3 class="team-name">Yajie Zhang</h3>
                     <p class="team-role">Conference Organising Committee</p>
@@ -337,9 +302,7 @@
         </section>
     </main>  
 
-    <footer>  
-        © 2026 BEAR Conference. Hosted on GitHub Pages.  
-    </footer>  
+    <footer>© 2026 BEAR Conference. Hosted on GitHub Pages.</footer>  
 
 </body>  
 </html>
