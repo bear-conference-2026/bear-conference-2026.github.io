@@ -190,16 +190,25 @@
             gap: 30px;
         }
 
-        .team-member {
+         .team-member {
             background-color: var(--glass-bg);
             padding: 40px;
             border-radius: 15px;
             backdrop-filter: blur(10px);
-            border-left: 4px solid var(--accent-gold);
+            /* Centering properties */
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* Border moved to bottom for better symmetry with centered text */
+            border-bottom: 4px solid var(--accent-gold); 
             transition: transform 0.3s ease;
         }
 
-        .team-member:hover { transform: translateY(-5px); }
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
 
         .team-name {
             font-family: 'Oswald', sans-serif;
@@ -223,6 +232,8 @@
             font-size: 0.85rem;
             margin-top: 15px;
             opacity: 0.6;
+            /* Ensures the italic text stays centered */
+            width: 100%; 
         }
 
         /* --- Footer --- */
