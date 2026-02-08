@@ -209,9 +209,32 @@
             font-size: 0.95rem;
             color: var(--bear-cream);
             background: rgba(0,0,0,0.2);
-            padding: 20px;
+            padding: 25px;
             border-radius: 10px;
             display: inline-block;
+            max-width: 800px; /* Prevents it from getting too wide on large screens */
+        }
+        
+        /* NEW: Button Style for Directions */
+        .btn-directions {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background-color: var(--accent-gold);
+            color: var(--bear-dark);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            font-family: 'Oswald', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .btn-directions:hover {
+            background-color: var(--bear-cream);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
         /* --- Partners Section --- */  
@@ -242,7 +265,6 @@
             height: 60px;  
             opacity: 0.8;  
             transition: opacity 0.3s ease;
-            /* This turns colored logos WHITE */
             filter: brightness(0) invert(1);
         }
         
@@ -305,7 +327,7 @@
         </div>  
         <div class="detail-item">  
             <p>Location</p>  
-            <h4>Old Gym, University of Birmingham, UK</h4>  
+            <h4>Old Gym, UoB</h4>  
         </div>  
     </section>  
 
@@ -324,16 +346,8 @@
 
         <div class="map-section">  
             <h2>Where to find us</h2>  
-            <div class="venue-details">
-                <strong>The Old Gym </strong><br>
-                University of Birmingham, Edgbaston, Birmingham, B15 2TT.<br>
-                <small style="opacity: 0.8; margin-top: 5px; display: block;">
-                    Located on the Ring Road near the Haworth Building & Biosciences Building, just next to University Square on the Edgbaston Campus. 
-                    <n><i>Please note that access to the Lower Ground floor is via the two side staircases only, easily accessible via the two side doors as you enter from the Ring Road.</i></n>
-                    <a href="https://campusmap.bham.ac.uk/search/5d6f49221e1f64009327acc1?projectId=uob" target="_blank" style="color: var(--accent-gold);">Open University of Birmingham Map</a>
-                </small>
-            </div>
-        <div class="map-container">  
+            
+            <div class="map-container">  
                 <iframe 
                     src="https://www.openstreetmap.org/export/embed.html?bbox=-1.9346%2C52.4483%2C-1.9266%2C52.4523&amp;layer=mapnik&amp;marker=52.4503%2C-1.9306" 
                     width="100%" 
@@ -342,6 +356,20 @@
                     allowfullscreen="" 
                     loading="lazy">
                 </iframe>
+            </div>
+
+            <div class="venue-details">
+                <strong>The Old Gym</strong><br>
+                University of Birmingham, Edgbaston, Birmingham, B15 2TT.<br>
+                
+                <p style="opacity: 0.8; margin-top: 10px; font-size: 0.9rem;">
+                    Located on the Ring Road near the Haworth Building & Biosciences Building, just next to University Square on the Edgbaston Campus.<br>
+                    <em style="color: var(--accent-gold);">Please note that access to the Lower Ground floor is via the two side staircases only, easily accessible via the two side doors as you enter from the Ring Road.</em>
+                </p>
+
+                <a href="https://www.google.com/maps/dir/?api=1&destination=52.4503,-1.9306" target="_blank" class="btn-directions">
+                    Get Directions on Google Maps
+                </a>
             </div>
         </div>
     </main>  
