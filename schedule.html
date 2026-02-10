@@ -1,0 +1,359 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Schedule | BEAR Conference 2026</title>  
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">  
+    
+    <style>  
+        :root {  
+            --bear-green: #4F6458;  
+            --bear-dark: #2c3932;  
+            --bear-white: #ffffff;  
+            --bear-cream: #f4f1ea;  
+            --accent-gold: #d4a373;  
+            --glass-bg: rgba(44, 57, 50, 0.85);
+            --glass-hover: rgba(60, 75, 66, 0.95);
+        }  
+
+        html { scroll-behavior: smooth; }  
+
+        body {  
+            margin: 0;  
+            padding: 0;  
+            font-family: 'Inter', sans-serif;  
+            background-color: var(--bear-green);  
+            color: var(--bear-white);  
+            line-height: 1.6;  
+            overflow-x: hidden;  
+        }  
+
+        /* --- Navigation (Consistent) --- */  
+        nav {  
+            display: flex;  
+            justify-content: space-between;  
+            align-items: center;  
+            padding: 20px 5%;  
+            background-color: rgba(0,0,0,0.25);  
+            position: sticky;  
+            top: 0;  
+            z-index: 100;  
+            backdrop-filter: blur(10px);  
+            -webkit-backdrop-filter: blur(10px);  
+        }  
+
+        .logo {  
+            font-family: 'Oswald', sans-serif;  
+            font-size: 1.5rem;  
+            text-transform: uppercase;  
+            letter-spacing: 2px;  
+            color: var(--bear-white);  
+            text-decoration: none;  
+        }  
+
+        .nav-links a {  
+            color: white;  
+            text-decoration: none;  
+            margin-left: 30px;  
+            font-weight: bold;  
+            text-transform: uppercase;  
+            font-size: 0.9rem;  
+            transition: color 0.3s;
+        } 
+        
+        .nav-links a:hover { color: var(--accent-gold); }
+
+        /* --- Header --- */
+        .schedule-header {
+            text-align: center;
+            padding: 100px 5% 60px 5%;
+            background: radial-gradient(circle at top, rgba(79, 100, 88, 0.8), var(--bear-green));
+        }
+
+        .schedule-header h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            color: var(--bear-cream);
+            margin-bottom: 10px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .download-btn:hover {
+            background-color: var(--accent-gold);
+            color: var(--bear-dark);
+        }
+
+        /* --- Timeline Styling --- */
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 5% 100px 5%;
+            position: relative;
+        }
+
+        /* The vertical line */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 120px; /* Adjust based on time-col width */
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(212, 163, 115, 0.3); /* Low opacity gold */
+            z-index: 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Time Column */
+        .time-col {
+            width: 120px;
+            flex-shrink: 0;
+            text-align: right;
+            padding-right: 40px;
+            box-sizing: border-box;
+        }
+
+        .time-col h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin: 0;
+            line-height: 1;
+        }
+
+        .time-col span {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            text-transform: uppercase;
+        }
+
+        /* The Dot */
+        .timeline-marker {
+            position: absolute;
+            left: 111px; /* Center over the line */
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--bear-green);
+            border: 2px solid var(--accent-gold);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        /* Content Card */
+        .event-card {
+            flex-grow: 1;
+            background-color: var(--glass-bg);
+            padding: 25px;
+            border-radius: 0 15px 15px 15px;
+            border-left: 4px solid var(--accent-gold);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, background-color 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateX(5px);
+            background-color: var(--glass-hover);
+        }
+
+        .event-card h2 {
+            font-family: 'Oswald', sans-serif;
+            margin: 0 0 10px 0;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .event-card p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .speaker-name {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        /* Variant: Break/Social (Lighter look) */
+        .event-card.break {
+            background-color: rgba(255,255,255,0.1);
+            border-left: 4px solid rgba(255,255,255,0.3);
+            padding: 15px 25px;
+        }
+        
+        .event-card.break h2 { font-size: 1.1rem; opacity: 0.9; }
+        .timeline-marker.break { border-color: rgba(255,255,255,0.5); }
+
+        /* Footer */
+        footer {  
+            padding: 40px 5%;  
+            background-color: var(--bear-dark);  
+            text-align: center;  
+            font-size: 0.8rem;  
+            opacity: 0.7;  
+        }  
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .timeline-container::before { left: 20px; }
+            .timeline-item { flex-direction: column; padding-left: 50px; }
+            .time-col { width: 100%; text-align: left; margin-bottom: 10px; padding: 0; }
+            .timeline-marker { left: 11px; top: 5px; }
+            .event-card { border-radius: 10px; }
+        }
+    </style>  
+</head>  
+<body>  
+
+    <nav>  
+        <a href="index.html" class="logo">Bear Conference</a>  
+        <div class="nav-links">  
+            <a href="about.html">About</a>  
+            <a href="schedule.html" style="color: var(--accent-gold);">Schedule</a>  
+            <a href="keynote.html">Keynote</a>  
+            <a href="#">Register</a>  
+            <a href="contact.html">Contact</a>  
+        </div>  
+    </nav>  
+
+    <header class="schedule-header">
+        <h1>Conference Schedule</h1>
+        <p style="opacity: 0.8;">April 29, 2026 • The Old Gym, University of Birmingham</p>
+        <a href="#" class="download-btn">Download PDF Program</a>
+    </header>
+
+    <div class="timeline-container">
+        
+        <div class="timeline-item">
+            <div class="time-col">
+                <h3>09:00</h3>
+                <span>AM</span>
+            </div>
+            <div class="timeline-marker break"></div>
+            <div class="event-card break">
+                <h2>Registration & Coffee</h2>
+                <p>Check-in at the main desk. Coffee and pastries served in the foyer.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="time-col">
+                <h3>09:45</h3>
+                <span>AM</span>
+            </div>
+            <div class="timeline-marker"></div>
+            <div class="event-card">
+                <h2>Welcome Address</h2>
+                <p>Opening remarks by the BEAR Conference Committee and University leadership.</p>
+                <span class="speaker-name">Prof. Jane Doe, Director of Research Computing</span>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="time-col">
+                <h3>10:15</h3>
+                <span>AM</span>
+            </div>
+            <div class="timeline-marker"></div>
+            <div class="event-card" style="border-color: var(--bear-cream);">
+                <h2 style="color: var(--bear-cream);">Keynote: The Ethics of AI</h2>
+                <p>A deep dive into the integrity challenges facing modern High Performance Computing and generative models.</p>
+                <span class="speaker-name">Dr. Alan Turing II, Oxford Internet Institute</span>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="time-col">
+                <h3>11:15</h3>
+                <span>AM</span>
+            </div>
+            <div class="timeline-marker break"></div>
+            <div class="event-card break">
+                <h2>Morning Break</h2>
+                <p>Networking and refreshments.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="time-col">
+                <h3>11:45</h3>
+                <span>AM</span>
+            </div>
+            <div class="timeline-marker"></div>
+            <div class="event-card">
+                <h2>Session 1: HPC in Life Sciences</h2>
+                <p>Three 15-minute talks from postgraduate researchers focusing on genomics and protein folding simulations.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="time-col">
+                <h3>13:00</h3>
+                <span>PM</span>
+            </div>
+            <div class="timeline-marker break"></div>
+            <div class="event-card break">
+                <h2>Lunch & Poster Session</h2>
+                <p>Buffet lunch provided. Please visit the poster stands located in the side hall. Sponsored by Lenovo.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="time-col">
+                <h3>14:30</h3>
+                <span>PM</span>
+            </div>
+            <div class="timeline-marker"></div>
+            <div class="event-card">
+                <h2>Session 2: Responsible AI</h2>
+                <p>Talks focusing on bias mitigation, data privacy, and the "AI x Integrity" theme.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="time-col">
+                <h3>16:00</h3>
+                <span>PM</span>
+            </div>
+            <div class="timeline-marker"></div>
+            <div class="event-card">
+                <h2>Awards & Closing</h2>
+                <p>Announcement of Best Talk and Best Poster winners. Closing remarks.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>  
+        © 2026 BEAR Conference. Hosted on GitHub Pages.  
+    </footer> 
+
+</body>  
+</html>
