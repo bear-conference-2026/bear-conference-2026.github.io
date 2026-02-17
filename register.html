@@ -1,0 +1,325 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Register | BEAR Conference 2026</title>  
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">  
+    
+    <style>  
+        :root {  
+            --bear-green: #4F6458;  
+            --bear-dark: #2c3932;  
+            --bear-white: #ffffff;  
+            --bear-cream: #f4f1ea;  
+            --accent-gold: #d4a373;  
+            --glass-bg: rgba(44, 57, 50, 0.85);
+            --glass-hover: rgba(60, 75, 66, 0.95);
+        }  
+
+        html { scroll-behavior: smooth; }  
+
+        body {  
+            margin: 0;  
+            padding: 0;  
+            font-family: 'Inter', sans-serif;  
+            background-color: var(--bear-green);  
+            color: var(--bear-white);  
+            line-height: 1.6;  
+            overflow-x: hidden;  
+        }  
+
+        /* --- Navigation --- */  
+        nav {  
+            display: flex;  
+            justify-content: space-between;  
+            align-items: center;  
+            padding: 20px 5%;  
+            background-color: rgba(0,0,0,0.25);  
+            position: sticky;  
+            top: 0;  
+            z-index: 100;  
+            backdrop-filter: blur(10px);  
+            -webkit-backdrop-filter: blur(10px);  
+        }  
+
+        .logo {  
+            font-family: 'Oswald', sans-serif;  
+            font-size: 1.5rem;  
+            text-transform: uppercase;  
+            letter-spacing: 2px;  
+            color: var(--bear-white);  
+            text-decoration: none;  
+        }  
+
+        .nav-links a {  
+            color: white;  
+            text-decoration: none;  
+            margin-left: 30px;  
+            font-weight: bold;  
+            text-transform: uppercase;  
+            font-size: 0.9rem;  
+            transition: color 0.3s;
+        } 
+        
+        .nav-links a:hover { color: var(--accent-gold); }
+
+        /* --- Hero Header --- */
+        .register-header {
+            text-align: center;
+            padding: 100px 5% 40px 5%;
+            background: radial-gradient(circle at top, rgba(79, 100, 88, 0.8), var(--bear-green));
+        }
+
+        .register-header h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            color: var(--bear-cream);
+            margin-bottom: 10px;
+        }
+
+        .register-header p {
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        /* --- Action Cards (The Split) --- */
+        .action-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 5%;
+        }
+
+        .action-card {
+            background-color: var(--glass-bg);
+            padding: 50px 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .action-card:hover {
+            transform: translateY(-5px);
+            background-color: var(--glass-hover);
+        }
+
+        .action-card h2 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--accent-gold);
+            font-size: 2rem;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+
+        /* Buttons */
+        .btn-main {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 40px;
+            background-color: var(--accent-gold);
+            color: var(--bear-dark);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-family: 'Oswald', sans-serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-main:hover {
+            background-color: var(--bear-cream);
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 40px;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-family: 'Oswald', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent-gold);
+            color: var(--bear-dark);
+        }
+
+        /* --- Info Sections --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 60px auto 100px auto;
+            padding: 0 5%;
+        }
+
+        .info-card {
+            background-color: rgba(0,0,0,0.2);
+            padding: 40px;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .info-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: var(--bear-cream);
+            margin-top: 0;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-card ul {
+            padding-left: 20px;
+        }
+
+        .info-card li {
+            margin-bottom: 15px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Deadline List Styling */
+        .deadline-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+        }
+
+        .deadline-date {
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .action-container, .info-grid { grid-template-columns: 1fr; }
+            .register-header h1 { font-size: 2.5rem; }
+        }
+
+        footer {  
+            padding: 40px 5%;  
+            background-color: var(--bear-dark);  
+            text-align: center;  
+            font-size: 0.8rem;  
+            opacity: 0.7;  
+        }  
+    </style>  
+</head>  
+<body>  
+
+    <nav>  
+        <a href="index.html" class="logo">Bear Conference</a>  
+        <div class="nav-links">  
+            <a href="about.html">About</a>  
+            <a href="schedule.html">Schedule</a>  
+            <a href="keynote.html">Keynote</a>  
+            <a href="register.html" style="color: var(--accent-gold);">Register</a>  
+            <a href="contact.html">Contact</a>  
+        </div>  
+    </nav>  
+
+    <header class="register-header">
+        <h1>Registration & Submissions</h1>
+        <p>Whether you are presenting your latest research or joining us to learn, we welcome the entire UoB PGR community.</p>
+    </header>
+
+    <section class="action-container">
+        
+        <div class="action-card">
+            <h2>Attend</h2>
+            <p>Join us for a day of inspiring talks, networking, and food. Registration is free for all!</p>
+            <a href="https://forms.office.com/attendee-link-here" target="_blank" class="btn-secondary">
+                Register as Delegate
+            </a>
+        </div>
+
+        <div class="action-card" style="border-color: var(--accent-gold); box-shadow: 0 0 20px rgba(212, 163, 115, 0.1);">
+            <h2>Present</h2>
+            <p>Showcase your research to the community. We are accepting abstracts for both oral presentations and posters.</p>
+            <a href="https://forms.office.com/abstract-link-here" target="_blank" class="btn-main">
+                Submit Abstract
+            </a>
+        </div>
+
+    </section>
+
+    <div class="info-grid">
+        
+        <div class="info-card">
+            <h3>Submission Guidelines</h3>
+            <p>We invite submissions from all disciplines (Sciences, Engineering, Medicine) that utilize BEAR services or High Performance Computing in their research.</p>
+            
+            <strong style="color: var(--accent-gold); display:block; margin-top:20px;">Oral Presentations</strong>
+            <ul>
+                <li><strong>Standard Talk:</strong> 15 minutes presentation + 5 minutes Q&A. Ideal for completed research or significant milestones.</li>
+                <li><strong>Lightning Talk:</strong> 5 minutes. Perfect for early-stage research or rapid methodology overviews.</li>
+            </ul>
+
+            <strong style="color: var(--accent-gold); display:block; margin-top:20px;">Poster Presentations</strong>
+            <ul>
+                <li><strong>Format:</strong> A0 or A1 Portrait.</li>
+                <li>Posters will be displayed in the Old Gym hall during lunch and coffee breaks.</li>
+                <li>Prizes will be awarded for "Best Poster" courtesy of Lenovo.</li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h3>Important Dates</h3>
+            
+            <div class="deadline-item">
+                <span>Abstract Submissions Close</span>
+                <span class="deadline-date">March 14, 2026</span>
+            </div>
+
+            <div class="deadline-item">
+                <span>Speaker Notification</span>
+                <span class="deadline-date">March 28, 2026</span>
+            </div>
+
+            <div class="deadline-item">
+                <span>Attendee Registration Closes</span>
+                <span class="deadline-date">April 14, 2026</span>
+            </div>
+
+            <div class="deadline-item" style="border: none;">
+                <span>Conference Date</span>
+                <span class="deadline-date">April 29, 2026</span>
+            </div>
+
+            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 20px;">
+                * Late submissions for abstracts cannot be accepted due to peer-review constraints.
+            </p>
+        </div>
+
+    </div>
+
+    <footer>  
+        © 2026 BEAR Conference. Hosted on GitHub Pages.  
+    </footer> 
+
+</body>  
+</html>
