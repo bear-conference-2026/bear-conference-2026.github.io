@@ -34,17 +34,17 @@
         /* --- THE BEAR (TOP RIGHT) --- */
         body::after {
             content: "";
-            position: absolute; /* Changed to absolute to flow with the top of the document */
-            top: 0;
+            position: absolute; 
+            top: 100px; 
             right: -5%;
-            width: 95vw;
-            height: 95vw;
-            max-width: 1000px;
+            width: 85vw;
+            height: 85vw;
+            max-width: 900px;
             background-image: url('registerbear_rem.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: top right;
-            opacity: 0.8; /* Increased to match index page prominence */
+            opacity: 1; /* Removed transparency */
             z-index: 0; 
             pointer-events: none;
         }
@@ -90,7 +90,8 @@
             z-index: 10; /* Ensures text stays above bear */
             text-align: center;
             padding: 120px 5% 60px 5%;
-            background: radial-gradient(circle at top, rgba(79, 100, 88, 0.2), var(--bear-green));
+            background: linear-gradient(to bottom, rgba(79, 100, 88, 0.2), var(--bear-green) 90%);
+            /*background: radial-gradient(circle at top, rgba(79, 100, 88, 0.2), var(--bear-green));*/
         }
 
         .register-header h1 {
@@ -102,7 +103,7 @@
             margin: 0;
             letter-spacing: -1px;
             line-height: 0.9;
-            text-shadow: 3px 6px 15px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 4px 20px rgba(0, 0, 0, 0.8);
         }
 
         /* --- Action Cards --- */
