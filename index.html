@@ -143,6 +143,7 @@
             z-index: 15;
         }
 
+        
         .register-box:hover { transform: translateY(-5px); }
         .register-box p { margin: 0; font-size: 0.8rem; opacity: 0.7; }
         .register-box h2 { margin: 10px 0; font-family: 'Oswald', sans-serif; font-size: 2rem; line-height: 1; }
@@ -154,6 +155,32 @@
             text-decoration: none;
             font-weight: bold;
             border-bottom: 2px solid white;
+        }
+
+        /* Prevents the link from turning blue or purple */
+        .nav-link-arrow, 
+        .nav-link-arrow:visited, 
+        .nav-link-arrow:active {
+            color: var(--accent-gold); /* Or var(--bear-white) depending on your preference */
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        /* Adds the arrow using a pseudo-element */
+        .nav-link-arrow::after {
+            content: " →"; /* The arrow character */
+            display: inline-block;
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        /* Optional: Makes the arrow nudge to the right when you hover */
+        .nav-link-arrow:hover::after {
+            transform: translateX(5px);
+        }
+        
+        .nav-link-arrow:hover {
+            opacity: 0.8;
         }
 
         .info-bubble {
@@ -242,7 +269,7 @@
         <div class="register-box">
             <p>Speakers & Delegates welcome!</p>
             <h2>REGISTER<br> NOW </h2>
-            <a href="register.html">REGISTRATION </a>
+            <a href="register.html" class="nav-link-arrow">REGISTRATION</a>
         </div>
     </main>
 
