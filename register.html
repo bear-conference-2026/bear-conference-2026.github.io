@@ -28,24 +28,24 @@
             color: var(--bear-white);  
             line-height: 1.6;  
             overflow-x: hidden;  
-            position: relative; /* Necessary for the bear background placement */
+            position: relative; 
         }  
 
-        /* --- THE BEAR --- */
+        /* --- THE BEAR (TOP RIGHT) --- */
         body::after {
             content: "";
-            position: fixed; 
-            bottom: -5%;
+            position: absolute; /* Changed to absolute to flow with the top of the document */
+            top: 0;
             right: -5%;
-            width: 70vw;
-            height: 70vw;
-            max-width: 800px;
+            width: 95vw;
+            height: 95vw;
+            max-width: 1000px;
             background-image: url('registerbear_rem.png');
             background-size: contain;
             background-repeat: no-repeat;
-            background-position: bottom right;
-            opacity: 0.15; 
-            z-index: -1; 
+            background-position: top right;
+            opacity: 0.8; /* Increased to match index page prominence */
+            z-index: 0; 
             pointer-events: none;
         }
 
@@ -86,31 +86,26 @@
 
         /* --- Hero Header --- */
         .register-header {
+            position: relative;
+            z-index: 10; /* Ensures text stays above bear */
             text-align: center;
-            padding: 100px 5% 40px 5%;
-            /* Gradient made slightly more transparent to let the bear show through */
-            background: radial-gradient(circle at top, rgba(79, 100, 88, 0.4), var(--bear-green));
+            padding: 120px 5% 60px 5%;
+            background: radial-gradient(circle at top, rgba(79, 100, 88, 0.2), var(--bear-green));
         }
 
         .register-header h1 {
             font-family: 'Oswald', sans-serif;
-            font-weight: 700; /* BOLDED */
-            font-size: clamp(2.5rem, 8vw, 4.5rem); /* Responsive sizing */
+            font-weight: 700; 
+            font-size: clamp(3rem, 10vw, 5.5rem); 
             text-transform: uppercase;
             color: var(--bear-cream);
-            margin-bottom: 10px;
+            margin: 0;
             letter-spacing: -1px;
-            line-height: 1;
+            line-height: 0.9;
+            text-shadow: 3px 6px 15px rgba(0, 0, 0, 0.5);
         }
 
-        .register-header p {
-            max-width: 600px;
-            margin: 0 auto;
-            opacity: 0.9;
-            font-size: 1.1rem;
-        }
-
-        /* --- Action Cards (The Split) --- */
+        /* --- Action Cards --- */
         .action-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -119,7 +114,7 @@
             margin: 40px auto;
             padding: 0 5%;
             position: relative;
-            z-index: 10;
+            z-index: 20; /* Sits above everything */
         }
 
         .action-card {
@@ -130,6 +125,7 @@
             text-align: center;
             border: 1px solid rgba(255,255,255,0.1);
             transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .action-card:hover {
@@ -140,18 +136,16 @@
         .action-card h2 {
             font-family: 'Oswald', sans-serif;
             color: var(--accent-gold);
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-top: 0;
             text-transform: uppercase;
         }
 
         /* Buttons */
-        .btn-main {
+        .btn-main, .btn-secondary {
             display: inline-block;
             margin-top: 30px;
             padding: 15px 40px;
-            background-color: var(--accent-gold);
-            color: var(--bear-dark);
             text-decoration: none;
             font-weight: 700;
             border-radius: 5px;
@@ -159,6 +153,11 @@
             font-size: 1rem;
             font-family: 'Oswald', sans-serif;
             transition: all 0.3s ease;
+        }
+
+        .btn-main {
+            background-color: var(--accent-gold);
+            color: var(--bear-dark);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
@@ -168,18 +167,8 @@
         }
 
         .btn-secondary {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 40px;
             border: 2px solid var(--accent-gold);
             color: var(--accent-gold);
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 5px;
-            text-transform: uppercase;
-            font-size: 1rem;
-            font-family: 'Oswald', sans-serif;
-            transition: all 0.3s ease;
         }
 
         .btn-secondary:hover {
@@ -196,15 +185,15 @@
             margin: 60px auto 100px auto;
             padding: 0 5%;
             position: relative;
-            z-index: 10;
+            z-index: 20;
         }
 
         .info-card {
-            background-color: rgba(0,0,0,0.4); /* Darkened slightly for readability over background */
+            background-color: rgba(20, 30, 25, 0.6); 
             padding: 40px;
             border-radius: 15px;
             border-left: 4px solid var(--accent-gold);
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(8px);
         }
 
         .info-card h3 {
@@ -238,8 +227,8 @@
         /* Mobile */
         @media (max-width: 768px) {
             .action-container, .info-grid { grid-template-columns: 1fr; }
-            .register-header h1 { font-size: 2.5rem; }
-            body::after { width: 100vw; height: 100vw; opacity: 0.1; }
+            .register-header h1 { font-size: 3rem; }
+            body::after { width: 120vw; opacity: 0.3; top: 5%; }
         }
 
         footer {  
@@ -249,7 +238,7 @@
             font-size: 0.8rem;  
             opacity: 0.7;  
             position: relative;
-            z-index: 20;
+            z-index: 30;
         }  
     </style>  
 </head>  
@@ -267,79 +256,62 @@
     </nav>  
 
     <header class="register-header">
-        <h1>REGISTRATION & SUBMISSIONS</h1>
-        <p></p>
+        <h1>REGISTRATION &<br>SUBMISSIONS</h1>
     </header>
 
     <section class="action-container">
-        
         <div class="action-card">
             <h2>Attend</h2>
             <p>Join us for a day of inspiring talks, networking, and food. Registration is free for all!</p>
-            <a href="https://forms.office.com/attendee-link-here" target="_blank" class="btn-secondary">
-                Register
-            </a>
+            <a href="https://forms.office.com/attendee-link-here" target="_blank" class="btn-secondary">Register</a>
         </div>
 
-        <div class="action-card" style="border-color: var(--accent-gold); box-shadow: 0 0 20px rgba(212, 163, 115, 0.1);">
+        <div class="action-card" style="border-color: var(--accent-gold);">
             <h2>Present</h2>
             <p>Showcase your research to the community. We are accepting abstracts for both oral presentations and posters.</p>
-            <a href="https://forms.office.com/abstract-link-here" target="_blank" class="btn-main">
-                Submit Abstract
-            </a>
+            <a href="https://forms.office.com/abstract-link-here" target="_blank" class="btn-main">Submit Abstract</a>
         </div>
-
     </section>
 
     <div class="info-grid">
-        
         <div class="info-card">
             <h3>Submission Guidelines</h3>
-            <p>We invite submissions from all disciplines (e.g., Computer Science, Social Sciences, Engineering, Medicine, Psychology) that utilize BEAR services, High Performance Computing, and AI in their research.</p>
+            <p>We invite submissions from all disciplines that utilize BEAR services, High Performance Computing, and AI in their research.</p>
             
             <strong style="color: var(--accent-gold); display:block; margin-top:20px;">Oral Presentations</strong>
             <ul>
-                <li><strong>Standard Talk:</strong> 15 minutes presentation + 5 minutes Q&A. Ideal for completed research or significant milestones.</li>
-                <li><strong>Lightning Talk:</strong> 5 minutes. Perfect for early-stage research.</li>
-                <li>Prizes will be awarded for "Best Talk" and "Best Lightning Talk" courtesy of Lenovo & NVIDIA.</li>
+                <li><strong>Standard Talk:</strong> 15 mins + 5 mins Q&A.</li>
+                <li><strong>Lightning Talk:</strong> 5 mins perfect for early-stage research.</li>
+                <li>Prizes for "Best Talk" courtesy of Lenovo & NVIDIA.</li>
             </ul>
 
             <strong style="color: var(--accent-gold); display:block; margin-top:20px;">Poster Presentations</strong>
             <ul>
                 <li><strong>Format:</strong> A1 Portrait.</li>
-                <li>Posters will be displayed in the Old Gym hall during lunch and coffee breaks.</li>
-                <li>Prizes will be awarded for "Best Poster" courtesy of Lenovo & NVIDIA.</li>
+                <li>Display in Old Gym hall during breaks.</li>
+                <li>Prizes for "Best Poster" courtesy of Lenovo & NVIDIA.</li>
             </ul>
         </div>
 
         <div class="info-card">
             <h3>Important Dates</h3>
-            
             <div class="deadline-item">
-                <span>Abstract Submissions Close</span>
+                <span>Submissions Close</span>
                 <span class="deadline-date">March 14, 2026</span>
             </div>
-
             <div class="deadline-item">
-                <span>Speaker Notification</span>
+                <span>Notification</span>
                 <span class="deadline-date">March 28, 2026</span>
             </div>
-
             <div class="deadline-item">
-                <span>Attendee Registration Closes</span>
+                <span>Registration Closes</span>
                 <span class="deadline-date">April 14, 2026</span>
             </div>
-
             <div class="deadline-item" style="border: none;">
                 <span>Conference Date</span>
                 <span class="deadline-date">April 29, 2026</span>
             </div>
-
-            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 20px;">
-                * Late submissions for abstracts cannot be accepted due to peer-review constraints.
-            </p>
         </div>
-
     </div>
 
     <footer>  
