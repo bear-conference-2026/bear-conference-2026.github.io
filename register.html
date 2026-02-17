@@ -28,7 +28,26 @@
             color: var(--bear-white);  
             line-height: 1.6;  
             overflow-x: hidden;  
+            position: relative; /* Necessary for the bear background placement */
         }  
+
+        /* --- THE BEAR --- */
+        body::after {
+            content: "";
+            position: fixed; 
+            bottom: -5%;
+            right: -5%;
+            width: 70vw;
+            height: 70vw;
+            max-width: 800px;
+            background-image: url('registerbear_rem.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            opacity: 0.15; 
+            z-index: -1; 
+            pointer-events: none;
+        }
 
         /* --- Navigation --- */  
         nav {  
@@ -69,15 +88,19 @@
         .register-header {
             text-align: center;
             padding: 100px 5% 40px 5%;
-            background: radial-gradient(circle at top, rgba(79, 100, 88, 0.8), var(--bear-green));
+            /* Gradient made slightly more transparent to let the bear show through */
+            background: radial-gradient(circle at top, rgba(79, 100, 88, 0.4), var(--bear-green));
         }
 
         .register-header h1 {
             font-family: 'Oswald', sans-serif;
-            font-size: 3.5rem;
+            font-weight: 700; /* BOLDED */
+            font-size: clamp(2.5rem, 8vw, 4.5rem); /* Responsive sizing */
             text-transform: uppercase;
             color: var(--bear-cream);
             margin-bottom: 10px;
+            letter-spacing: -1px;
+            line-height: 1;
         }
 
         .register-header p {
@@ -95,6 +118,8 @@
             max-width: 1200px;
             margin: 40px auto;
             padding: 0 5%;
+            position: relative;
+            z-index: 10;
         }
 
         .action-card {
@@ -170,13 +195,16 @@
             max-width: 1200px;
             margin: 60px auto 100px auto;
             padding: 0 5%;
+            position: relative;
+            z-index: 10;
         }
 
         .info-card {
-            background-color: rgba(0,0,0,0.2);
+            background-color: rgba(0,0,0,0.4); /* Darkened slightly for readability over background */
             padding: 40px;
             border-radius: 15px;
             border-left: 4px solid var(--accent-gold);
+            backdrop-filter: blur(5px);
         }
 
         .info-card h3 {
@@ -190,16 +218,9 @@
             margin-bottom: 20px;
         }
 
-        .info-card ul {
-            padding-left: 20px;
-        }
+        .info-card ul { padding-left: 20px; }
+        .info-card li { margin-bottom: 15px; color: rgba(255,255,255,0.9); }
 
-        .info-card li {
-            margin-bottom: 15px;
-            color: rgba(255,255,255,0.9);
-        }
-
-        /* Deadline List Styling */
         .deadline-item {
             display: flex;
             justify-content: space-between;
@@ -218,6 +239,7 @@
         @media (max-width: 768px) {
             .action-container, .info-grid { grid-template-columns: 1fr; }
             .register-header h1 { font-size: 2.5rem; }
+            body::after { width: 100vw; height: 100vw; opacity: 0.1; }
         }
 
         footer {  
@@ -226,6 +248,8 @@
             text-align: center;  
             font-size: 0.8rem;  
             opacity: 0.7;  
+            position: relative;
+            z-index: 20;
         }  
     </style>  
 </head>  
@@ -243,8 +267,8 @@
     </nav>  
 
     <header class="register-header">
-        <h1>Registration & Submissions</h1>
-        <p>Whether you are presenting your research or joining us for the day, we welcome the entire UoB PGR community.</p>
+        <h1>REGISTRATION & SUBMISSIONS</h1>
+        <p></p>
     </header>
 
     <section class="action-container">
@@ -253,7 +277,7 @@
             <h2>Attend</h2>
             <p>Join us for a day of inspiring talks, networking, and food. Registration is free for all!</p>
             <a href="https://forms.office.com/attendee-link-here" target="_blank" class="btn-secondary">
-                Register as Delegate
+                Register
             </a>
         </div>
 
@@ -271,19 +295,20 @@
         
         <div class="info-card">
             <h3>Submission Guidelines</h3>
-            <p>We invite submissions from all disciplines (Sciences, Engineering, Medicine) that utilize BEAR services or High Performance Computing in their research.</p>
+            <p>We invite submissions from all disciplines (e.g., Computer Science, Social Sciences, Engineering, Medicine, Psychology) that utilize BEAR services, High Performance Computing, and AI in their research.</p>
             
             <strong style="color: var(--accent-gold); display:block; margin-top:20px;">Oral Presentations</strong>
             <ul>
                 <li><strong>Standard Talk:</strong> 15 minutes presentation + 5 minutes Q&A. Ideal for completed research or significant milestones.</li>
-                <li><strong>Lightning Talk:</strong> 5 minutes. Perfect for early-stage research or rapid methodology overviews.</li>
+                <li><strong>Lightning Talk:</strong> 5 minutes. Perfect for early-stage research.</li>
+                <li>Prizes will be awarded for "Best Talk" and "Best Lightning Talk" courtesy of Lenovo & NVIDIA.</li>
             </ul>
 
             <strong style="color: var(--accent-gold); display:block; margin-top:20px;">Poster Presentations</strong>
             <ul>
-                <li><strong>Format:</strong> A0 or A1 Portrait.</li>
+                <li><strong>Format:</strong> A1 Portrait.</li>
                 <li>Posters will be displayed in the Old Gym hall during lunch and coffee breaks.</li>
-                <li>Prizes will be awarded for "Best Poster" courtesy of Lenovo.</li>
+                <li>Prizes will be awarded for "Best Poster" courtesy of Lenovo & NVIDIA.</li>
             </ul>
         </div>
 
